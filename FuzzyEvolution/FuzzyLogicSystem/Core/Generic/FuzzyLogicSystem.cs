@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FuzzyLogicSystem
+namespace FuzzyLogicSystem.Core.Generic
 {
-    public class Class1
+    class FuzzyLogicSystem : IFuzzyLogicSystem
     {
     }
 }
