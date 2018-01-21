@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FuzzyLogicSystem.Core.Values
 {
-    abstract class FuzzyMember : IFuzzyMember
+    public abstract class FuzzyMember : IFuzzyMember
     {
         private readonly string _name;
         private readonly int _category;
@@ -14,7 +14,7 @@ namespace FuzzyLogicSystem.Core.Values
         private readonly float _coverage;
         private readonly float _upper_coverage;
 
-        public FuzzyMember(string name, int category, float center, float coverage, float upperCoverage = 0.0f)
+        public FuzzyMember(string name, int category, float center, float coverage, float upperCoverage)
         {
             _name = name;
             _category = category;
