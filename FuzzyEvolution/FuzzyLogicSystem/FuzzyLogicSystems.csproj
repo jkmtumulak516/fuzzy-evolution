@@ -58,7 +58,7 @@
     <Compile Include="Core\Rules\RuleOperand.cs" />
     <Compile Include="Core\Rules\RuleOperator.cs" />
     <Compile Include="Core\Rules\IRulePart.cs" />
-    <Compile Include="Core\Values\FuzzyMember.cs" />
+    <Compile Include="Core\Values\IFuzzyMember.cs" />
     <Compile Include="Core\Values\FuzzyValue.cs" />
     <Compile Include="Core\Values\Generic\GaussianInput.cs" />
     <Compile Include="Core\Values\Generic\LinearInput.cs" />
