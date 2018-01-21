@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FuzzyLogicSystem.Core.Values
 {
-    internal interface IFuzzyMember
+    public interface IFuzzyMember
     {
         string Name { get; }
         int Id { get; }
