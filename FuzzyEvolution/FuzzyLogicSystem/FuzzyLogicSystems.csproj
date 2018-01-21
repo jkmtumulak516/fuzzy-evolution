@@ -45,6 +45,11 @@
     <Compile Include="Core\IFuzzyLogicSystem.cs" />
     <Compile Include="Core\IFuzzyMember.cs" />
     <Compile Include="Core\IFuzzyRuleBase.cs" />
+    <Compile Include="Core\Rules\Rule.cs" />
+    <Compile Include="Core\Rules\RuleBuilder.cs" />
+    <Compile Include="Core\Rules\RuleOperand.cs" />
+    <Compile Include="Core\Rules\RuleOperator.cs" />
+    <Compile Include="Core\Rules\IRulePart.cs" />
     <Compile Include="Core\Values\FuzzyMember.cs" />
     <Compile Include="Core\Values\FuzzyValue.cs" />
     <Compile Include="Core\Values\Generic\GaussianInput.cs" />
@@ -57,7 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\Generic\" />
-    <Folder Include="Core\Rules\" />
     <Folder Include="IO\" />
     <Folder Include="Util\" />
   </ItemGroup>
