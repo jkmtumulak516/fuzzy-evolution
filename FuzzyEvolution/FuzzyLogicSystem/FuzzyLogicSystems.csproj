@@ -67,10 +67,10 @@
     <Compile Include="Core\Values\InputFuzzyMember.cs" />
     <Compile Include="Core\Values\ResultFuzzyMember.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\Math.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="IO\" />
-    <Folder Include="Util\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
