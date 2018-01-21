@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FuzzyLogicSystem.Core.Values.Generic
+namespace FuzzyLogicSystems.Core.Values.Generic
 {
     class LinearResult : ResultFuzzyMember
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace FuzzyLogicSystem.Core.Values
+namespace FuzzyLogicSystems.Core.Values
 {
     public abstract class ResultFuzzyMember : FuzzyMember
     {

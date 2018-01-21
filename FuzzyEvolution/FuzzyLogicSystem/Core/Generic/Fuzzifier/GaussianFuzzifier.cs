@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FuzzyLogicSystem.Core.Generic.Fuzzifier
+namespace FuzzyLogicSystems.Core.Generic.Fuzzifier
 {
     class GaussianFuzzifier : IFuzzifier
     {

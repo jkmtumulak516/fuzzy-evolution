@@ -1,4 +1,4 @@
-﻿namespace FuzzyLogicSystem.Core.Values
+﻿namespace FuzzyLogicSystems.Core.Values
 {
     // should i use a template for this???
     // immutable

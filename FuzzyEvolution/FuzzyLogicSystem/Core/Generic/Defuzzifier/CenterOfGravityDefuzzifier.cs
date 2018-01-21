@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FuzzyLogicSystem.Core.Generic.Defuzzifier
+namespace FuzzyLogicSystems.Core.Generic.Defuzzifier
 {
     class CenterOfGravityDefuzzifier : IDefuzzifier
     {
