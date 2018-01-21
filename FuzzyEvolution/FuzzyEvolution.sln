@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuzzyLogicSystem", "FuzzyLogicSystem\FuzzyLogicSystem.csproj", "{D0E83039-099A-4930-9704-0FEF26584873}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuzzyLogicSystems", "FuzzyLogicSystem\FuzzyLogicSystems.csproj", "{D0E83039-099A-4930-9704-0FEF26584873}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvolutionaryAlgorithms", "EvolutionaryAlgorithms\EvolutionaryAlgorithms.csproj", "{FBC819B6-A5D9-44FF-A7C9-1F4329572F2A}"
 EndProject

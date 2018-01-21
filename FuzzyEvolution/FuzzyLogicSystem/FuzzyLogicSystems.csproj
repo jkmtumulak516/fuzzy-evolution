@@ -45,12 +45,17 @@
     <Compile Include="Core\IFuzzyLogicSystem.cs" />
     <Compile Include="Core\IFuzzyMember.cs" />
     <Compile Include="Core\IFuzzyRuleBase.cs" />
+    <Compile Include="Core\Values\FuzzyMember.cs" />
+    <Compile Include="Core\Values\FuzzyValue.cs" />
+    <Compile Include="Core\Values\IFuzzySet.cs" />
+    <Compile Include="Core\Values\InputFuzzyMember.cs" />
+    <Compile Include="Core\Values\ResultFuzzyMember.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core\Generic\" />
     <Folder Include="Core\Rules\" />
-    <Folder Include="Core\Values\" />
+    <Folder Include="Core\Values\Generic\" />
     <Folder Include="IO\" />
     <Folder Include="Util\" />
   </ItemGroup>
