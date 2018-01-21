@@ -63,7 +63,7 @@
     <Compile Include="Core\Values\Generic\GaussianInput.cs" />
     <Compile Include="Core\Values\Generic\LinearInput.cs" />
     <Compile Include="Core\Values\Generic\LinearResult.cs" />
-    <Compile Include="Core\Values\IFuzzySet.cs" />
+    <Compile Include="Core\Values\FuzzySet.cs" />
     <Compile Include="Core\Values\InputFuzzyMember.cs" />
     <Compile Include="Core\Values\ResultFuzzyMember.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
