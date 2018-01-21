@@ -40,6 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Generic\Defuzzifier\CenterOfGravityDefuzzifier.cs" />
+    <Compile Include="Core\Generic\Defuzzifier\CenterOfSumsDefuzzifier.cs" />
+    <Compile Include="Core\Generic\Fuzzifier\GaussianFuzzifier.cs" />
+    <Compile Include="Core\Generic\Fuzzifier\LinearFuzzifier.cs" />
+    <Compile Include="Core\Generic\FuzzyLogicSystem.cs" />
+    <Compile Include="Core\Generic\RuleBase\BucketRuleBase.cs" />
+    <Compile Include="Core\Generic\RuleBase\Simple2DRuleBase.cs" />
+    <Compile Include="Core\Generic\RuleBase\Simple3DRuleBase.cs" />
     <Compile Include="Core\IDefuzzifier.cs" />
     <Compile Include="Core\IFuzzifier.cs" />
     <Compile Include="Core\IFuzzyLogicSystem.cs" />
@@ -61,7 +69,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Core\Generic\" />
     <Folder Include="IO\" />
     <Folder Include="Util\" />
   </ItemGroup>
