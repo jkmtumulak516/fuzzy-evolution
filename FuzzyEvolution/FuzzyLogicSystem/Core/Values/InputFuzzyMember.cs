@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FuzzyLogicSystem.Core.Values
 {
-    abstract class InputFuzzyMember
+    abstract class InputFuzzyMember : FuzzyMember
     {
     }
 }
