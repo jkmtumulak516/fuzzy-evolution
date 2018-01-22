@@ -1,10 +1,10 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestFuzzyLogicSystems
+namespace TestFuzzyLogicSystems.Core.Values.Generic
 {
     [TestClass]
-    public class UnitTest1
+    public class TestLinearInput
     {
         [TestMethod]
         public void TestMethod1()
