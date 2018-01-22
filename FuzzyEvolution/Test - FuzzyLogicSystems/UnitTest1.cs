@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Test___FuzzyLogicSystems
+namespace TestFuzzyLogicSystems
 {
     [TestClass]
     public class UnitTest1

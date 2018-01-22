@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuzzyLogicSystems", "FuzzyL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvolutionaryAlgorithms", "EvolutionaryAlgorithms\EvolutionaryAlgorithms.csproj", "{FBC819B6-A5D9-44FF-A7C9-1F4329572F2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test - FuzzyLogicSystems", "Test - FuzzyLogicSystems\Test - FuzzyLogicSystems.csproj", "{035A5273-E3F4-4244-B1F5-9D8C8D2509E4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFuzzyLogicSystems", "Test - FuzzyLogicSystems\TestFuzzyLogicSystems.csproj", "{035A5273-E3F4-4244-B1F5-9D8C8D2509E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
