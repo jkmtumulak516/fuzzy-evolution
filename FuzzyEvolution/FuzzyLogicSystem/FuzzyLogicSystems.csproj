@@ -68,7 +68,7 @@
     <Compile Include="Core\Values\ResultFuzzyMember.cs" />
     <Compile Include="Core\IFuzzyMember.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Util\Math.cs" />
+    <Compile Include="Util\MathUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="IO\" />
