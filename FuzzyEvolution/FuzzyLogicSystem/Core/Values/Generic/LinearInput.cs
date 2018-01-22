@@ -3,7 +3,7 @@ using FuzzyLogicSystems.Util;
 
 namespace FuzzyLogicSystems.Core.Values.Generic
 {
-    class LinearInput : InputFuzzyMember
+    public class LinearInput : InputFuzzyMember
     {
         public LinearInput(string name, int category, float center, 
             bool ceilLeft, bool ceilRight, float coverage, float upperCoverage) 

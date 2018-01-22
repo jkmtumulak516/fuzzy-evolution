@@ -2,7 +2,7 @@
 
 namespace FuzzyLogicSystems.Core.Values.Generic
 {
-    class GaussianInput : InputFuzzyMember
+    public class GaussianInput : InputFuzzyMember
     {
         public GaussianInput(string name, int category, float center,
             bool ceilLeft, bool ceilRight, float coverage, float upperCoverage) 

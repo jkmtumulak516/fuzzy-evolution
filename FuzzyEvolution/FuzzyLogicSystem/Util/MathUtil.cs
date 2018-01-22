@@ -9,9 +9,13 @@ namespace FuzzyLogicSystems.Util
             return height * E(-Math.Pow(value - center, 2) / (2 * Math.Pow(width, 2)));
         }
 
-        public static float LinearDistance(float point1, float point2, float max = 1.0f)
+        public static float LinearDistance(float center, float value, float bounds = 1.0f)
         {
-            return Math.Abs(point1 - point2) / max;
+            if (bounds <= 0) throw new ArgumentException(
+                "Parameter 'bounds' must be greater than 0. [bounds = " + bounds.ToString() + "]");
+
+            float rawDistance = Math.Abs(center - value) / bounds;
+            return rawDistance > 1.0f ? 0.0f : 1.0f - rawDistance;
         }
 
         // assumese dimensions given are valid for a parallel trapezoid

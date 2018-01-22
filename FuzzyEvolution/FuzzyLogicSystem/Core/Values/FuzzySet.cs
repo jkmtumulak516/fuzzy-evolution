@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using FuzzyLogicSystems.Core;
 
-namespace FuzzyLogicSystem.Core.Values
+namespace FuzzyLogicSystems.Core.Values
 {
     public abstract class FuzzySet
     {
