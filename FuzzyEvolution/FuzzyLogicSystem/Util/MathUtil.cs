@@ -4,10 +4,9 @@ namespace FuzzyLogicSystems.Util
 {
     public static class MathUtil
     {
-        public static float GaussianDistance(float x, float mu, float sigma)
+        public static float GaussianDistance(float height, float center, float width, float value)
         {
-            float sigmaSquared =(float)Math.Pow(sigma, 2);
-            return E(-Math.Pow(x - mu, 2) / (2 * sigmaSquared)) / (float)Math.Sqrt(2 * Math.PI * sigmaSquared);
+            return height * E(-Math.Pow(value - center, 2) / (2 * Math.Pow(width, 2)));
         }
 
         public static float LinearDistance(float point1, float point2, float max = 1.0f)

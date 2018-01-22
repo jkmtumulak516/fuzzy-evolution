@@ -1,12 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using FuzzyLogicSystems.Util;
 
 namespace FuzzyLogicSystems.Core.Values.Generic
 {
     class LinearInput : InputFuzzyMember
     {
+        public LinearInput(string name, int category, float center, 
+            bool ceilLeft, bool ceilRight, float coverage, float upperCoverage) 
+            : base(name, category, center, ceilLeft, ceilRight, coverage, upperCoverage) { }
+
+        public override float GetMembership(float crispValue)
+        {
+            return Math.Abs(Center - crispValue) < Coverage ? MathUtil.LinearDistance(Center, crispValue) : 0.0f;
+        }
     }
 }
