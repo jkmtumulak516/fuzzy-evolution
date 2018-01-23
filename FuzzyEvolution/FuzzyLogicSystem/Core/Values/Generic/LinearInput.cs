@@ -11,7 +11,15 @@ namespace FuzzyLogicSystems.Core.Values.Generic
 
         public override float GetMembership(float crispValue)
         {
-            return Math.Abs(Center - crispValue) < Coverage ? MathUtil.LinearDistance(Center, crispValue) : 0.0f;
+            float diffInCenterAndValue = Math.Abs(Center - crispValue);
+
+            if (CeilLeft && crispValue < Center) return 1.0f;
+            else if (CeilRight && crispValue > Center) return 1.0f;
+            else if (diffInCenterAndValue <= UpperCoverage) return 1.0f;
+            
+            float effectiveCenter = crispValue < Center ? Center - UpperCoverage : Center + UpperCoverage;
+
+            return diffInCenterAndValue < Coverage ? MathUtil.LinearDistance(effectiveCenter, crispValue) : 0.0f;
         }
     }
 }
