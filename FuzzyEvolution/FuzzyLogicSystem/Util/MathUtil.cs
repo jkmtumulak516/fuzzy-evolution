@@ -6,7 +6,7 @@ namespace FuzzyLogicSystems.Util
     {
         public static float GaussianDistance(float height, float center, float width, float value)
         {
-            return height * E(-Math.Pow(value - center, 2) / (2 * Math.Pow(width, 2)));
+            return height * E(Math.Pow((value - center) / (width * 0.25), 2) * 0.5f);
         }
 
         public static float LinearDistance(float center, float value, float bounds = 1.0f)
