@@ -8,72 +8,72 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
     public class TestGaussianInput
     {
         [TestMethod]
-        public void GaussianInputOrdinaryCrispValueAtCenter()
+        public void GaussianInputOrdinaryCrispValueAtPeak()
         {
             string name = "test";
             int category = 1;
-            float center = 0.0f;
+            float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = false;
-            float coverage = 1.0f;
-            float upperCoverage = 0.0f;
+            float baseHalfWidth = 1.0f;
+            float peakHalfWidth = 0.0f;
 
             var gaussianInput = new GaussianInput
-                (name, category, center, ceilLeft, ceilRight, coverage, upperCoverage);
+                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 0.0f;
 
             Assert.AreEqual(1.0f, gaussianInput.GetMembership(crispValue));
         }
 
         [TestMethod]
-        public void GaussianInputOrdinaryCrispValueBetweenCenterAndEndOfCoverage()
+        public void GaussianInputOrdinaryCrispValueBetweenPeakAndEdgeOfBase()
         {
             string name = "test";
             int category = 1;
-            float center = 0.0f;
+            float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = false;
-            float coverage = 1.0f;
-            float upperCoverage = 0.0f;
+            float baseHalfWidth = 1.0f;
+            float peakHalfWidth = 0.0f;
 
             var gaussianInput = new GaussianInput
-                (name, category, center, ceilLeft, ceilRight, coverage, upperCoverage);
+                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 0.5f;
 
             Assert.AreEqual(0.6065306f, gaussianInput.GetMembership(crispValue), 0.0000001f);
         }
 
         [TestMethod]
-        public void GaussianInputOrdinaryCrispValueEqualToEndOfCoverage()
+        public void GaussianInputOrdinaryCrispValueEqualToEdgeOfBase()
         {
             string name = "test";
             int category = 1;
-            float center = 0.0f;
+            float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = false;
-            float coverage = 2.0f;
-            float upperCoverage = 0.0f;
+            float baseHalfWidth = 2.0f;
+            float peakHalfWidth = 0.0f;
 
             var gaussianInput = new GaussianInput
-                (name, category, center, ceilLeft, ceilRight, coverage, upperCoverage);
+                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 2.0f;
 
             Assert.AreEqual(0.1353352f, gaussianInput.GetMembership(crispValue), 0.0000001f);
         }
 
         [TestMethod]
-        public void GaussianInputOrdinaryCrispValueBeyondEndOfCoverage()
+        public void GaussianInputOrdinaryCrispValueBeyondEdgeOfBase()
         {
             string name = "test";
             int category = 1;
-            float center = 0.0f;
+            float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = false;
-            float coverage = 1.5f;
-            float upperCoverage = 0.0f;
+            float baseHalfWidth = 1.5f;
+            float peakHalfWidth = 0.0f;
 
             var gaussianInput = new GaussianInput
-                (name, category, center, ceilLeft, ceilRight, coverage, upperCoverage);
+                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 2.5f;
 
             Assert.AreEqual(0.0038659f, gaussianInput.GetMembership(crispValue), 0.0000001f);
@@ -84,14 +84,14 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         {
             string name = "test";
             int category = 1;
-            float center = 0.0f;
+            float peak = 0.0f;
             bool ceilLeft = true;
             bool ceilRight = false;
-            float coverage = 1.0f;
-            float upperCoverage = 0.0f;
+            float baseHalfWidth = 1.0f;
+            float peakHalfWidth = 0.0f;
 
             var gaussianInput = new GaussianInput
-                (name, category, center, ceilLeft, ceilRight, coverage, upperCoverage);
+                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = -1.0f;
 
             Assert.AreEqual(1.0f, gaussianInput.GetMembership(crispValue));
@@ -102,50 +102,50 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         {
             string name = "test";
             int category = 1;
-            float center = 0.0f;
+            float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = true;
-            float coverage = 1.0f;
-            float upperCoverage = 0.0f;
+            float baseHalfWidth = 1.0f;
+            float peakHalfWidth = 0.0f;
 
             var gaussianInput = new GaussianInput
-                (name, category, center, ceilLeft, ceilRight, coverage, upperCoverage);
+                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 1.0f;
 
             Assert.AreEqual(1.0f, gaussianInput.GetMembership(crispValue));
         }
 
         [TestMethod]
-        public void GaussianInputUpperCoverageCrispValueWithinUpperCoverage()
+        public void GaussianInputPeakWidthCrispValueWithinWidthOfPeak()
         {
             string name = "test";
             int category = 1;
-            float center = 0.0f;
+            float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = false;
-            float coverage = 2.0f;
-            float upperCoverage = 1.0f;
+            float baseHalfWidth = 2.0f;
+            float peakHalfWidth = 1.0f;
 
             var gaussianInput = new GaussianInput
-                (name, category, center, ceilLeft, ceilRight, coverage, upperCoverage);
+                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 0.5f;
 
             Assert.AreEqual(1.0f, gaussianInput.GetMembership(crispValue));
         }
 
         [TestMethod]
-        public void GaussianInputUpperCoverageCrispValueBetweenUpperCoverageAndBaseCoverage()
+        public void GaussianInputPeakWidthCrispValueBetweenEdgeOfPeakAndEdgeOfBase()
         {
             string name = "test";
             int category = 1;
-            float center = 0.0f;
+            float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = false;
-            float coverage = 2.0f;
-            float upperCoverage = 1.0f;
+            float baseHalfWidth = 2.0f;
+            float peakHalfWidth = 1.0f;
 
             var gaussianInput = new GaussianInput
-                (name, category, center, ceilLeft, ceilRight, coverage, upperCoverage);
+                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 1.5f;
 
             Assert.AreEqual(0.6065306f, gaussianInput.GetMembership(crispValue), 0.0000001f);

@@ -11,95 +11,95 @@ namespace TestFuzzyLogicSystems.Util
         public void GaussianDistanceCenterAndValueAreEqual()
         {
             float height = 1.0f;
-            float center = 0.0f;
-            float width = 2.0f;
+            float peak = 0.0f;
+            float baseWidth = 2.0f;
             float value = 0.0f;
 
-            Assert.AreEqual(1.0f, MathUtil.GaussianDistance(height, center, width, value));
+            Assert.AreEqual(1.0f, MathUtil.GaussianDistance(height, peak, baseWidth, value));
         }
 
         [TestMethod]
         public void GaussianDistanceValueBetweenCenterAndEndOfWidth()
         {
             float height = 1.0f;
-            float center = 0.0f;
-            float width = 2.0f;
+            float peak = 0.0f;
+            float baseWidth = 2.0f;
             float value = 0.5f;
 
-            Assert.AreEqual(0.6065306f, MathUtil.GaussianDistance(height, center, width, value), 0.0000001f);
+            Assert.AreEqual(0.6065306f, MathUtil.GaussianDistance(height, peak, baseWidth, value), 0.0000001f);
         }
 
         [TestMethod]
         public void GaussianDistanceValueEqualToEndOfWidth()
         {
             float height = 2.0f;
-            float center = 0.0f;
-            float width = 4.0f;
+            float peak = 0.0f;
+            float baseWidth = 4.0f;
             float value = 2.0f;
 
-            Assert.AreEqual(0.2706705f, MathUtil.GaussianDistance(height, center, width, value), 0.0000001f);
+            Assert.AreEqual(0.2706705f, MathUtil.GaussianDistance(height, peak, baseWidth, value), 0.0000001f);
         }
 
         [TestMethod]
         public void GaussianDistanceValueIsBeyondWidth()
         {
             float height = 1f;
-            float center = 0.0f;
-            float width = 3.0f;
+            float peak = 0.0f;
+            float baseWidth = 3.0f;
             float value = 2.5f;
 
-            Assert.AreEqual(0.0038659f, MathUtil.GaussianDistance(height, center, width, value), 0.0000001f);
+            Assert.AreEqual(0.0038659f, MathUtil.GaussianDistance(height, peak, baseWidth, value), 0.0000001f);
         }
 
         [TestMethod]
         public void LinearDistanceCenterAndValueAreEqual()
         {
-            float center = 0.0f;
+            float peak = 0.0f;
             float value = 0.0f;
 
-            Assert.AreEqual(1.0f, MathUtil.LinearDistance(center, value));
+            Assert.AreEqual(1.0f, MathUtil.LinearDistance(peak, value));
         }
 
         [TestMethod]
         public void LinearDistanceValueWithinBounds()
         {
-            float center = 2.0f;
+            float peak = 2.0f;
             float value = 0.0f;
             float bounds = 4.0f;
 
-            Assert.AreEqual(0.5f, MathUtil.LinearDistance(center, value, bounds));
+            Assert.AreEqual(0.5f, MathUtil.LinearDistance(peak, value, bounds));
         }
 
         [TestMethod]
         public void LinearDistanceValueWithoutBounds()
         {
-            float center = 2.0f;
+            float peak = 2.0f;
             float value = 6.1f;
             float bounds = 4.0f;
 
-            Assert.AreEqual(0.0f, MathUtil.LinearDistance(center, value, bounds));
+            Assert.AreEqual(0.0f, MathUtil.LinearDistance(peak, value, bounds));
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void LinearDistanceBoundsIsZero()
         {
-            float center = 0.0f;
+            float peak = 0.0f;
             float value = 0.0f;
             float bounds = 0.0f;
 
-            MathUtil.LinearDistance(center, value, bounds);
+            MathUtil.LinearDistance(peak, value, bounds);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void LinearDistanceBoundsIsNegative()
         {
-            float center = 0.0f;
+            float peak = 0.0f;
             float value = 0.0f;
             float bounds = -1.0f;
 
-            MathUtil.LinearDistance(center, value, bounds);
+            MathUtil.LinearDistance(peak, value, bounds);
         }
 
         [TestMethod]

@@ -5,23 +5,23 @@ namespace FuzzyLogicSystems.Core.Values
     {
         private readonly string _name;
         private readonly int _category;
-        private readonly float _center;
-        private readonly float _coverage;
-        private readonly float _upper_coverage;
+        private readonly float _peak;
+        private readonly float _base_half_width;
+        private readonly float _peak_half_width;
 
-        public FuzzyMember(string name, int category, float center, float coverage, float upperCoverage)
+        public FuzzyMember(string name, int category, float peak, float baseHalfWidth, float peakHalfWidth)
         {
             _name = name;
             _category = category;
-            _center = center;
-            _coverage = coverage;
-            _upper_coverage = upperCoverage;
+            _peak = peak;
+            _base_half_width = baseHalfWidth;
+            _peak_half_width = peakHalfWidth;
         }
 
         public string Name { get => _name; }
         public int Category { get => _category; }
-        public float Center { get => _center; }
-        public float Coverage { get => _coverage; }
-        public float UpperCoverage { get => _upper_coverage; }
+        public float Peak { get => _peak; }
+        public float BaseHalfWidth { get => _base_half_width; }
+        public float PeakHalfWidth { get => _peak_half_width; }
     }
 }

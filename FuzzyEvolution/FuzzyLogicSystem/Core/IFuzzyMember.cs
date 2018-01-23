@@ -10,8 +10,8 @@ namespace FuzzyLogicSystems.Core
     {
         string Name { get; }
         int Category { get; }
-        float Center { get; }
-        float Coverage { get; }
-        float UpperCoverage { get; }
+        float Peak { get; }
+        float BaseHalfWidth { get; }
+        float PeakHalfWidth { get; }
     }
 }

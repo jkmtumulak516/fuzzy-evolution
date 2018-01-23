@@ -13,12 +13,12 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         {
             string name = "test";
             int category = 1;
-            float center = 0.0f;
-            float coverage = 2.5f;
-            float upperCoverage = 0.0f;
+            float peak = 0.0f;
+            float baseHalfWidth = 2.5f;
+            float peakHalfWidth = 0.0f;
 
             var linearResult = new LinearResult
-                (name, category, center, coverage, upperCoverage);
+                (name, category, peak, baseHalfWidth, peakHalfWidth);
             float degree = 1.0000001f;
 
             linearResult.GetArea(degree);
@@ -30,12 +30,12 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         {
             string name = "test";
             int category = 1;
-            float center = 0.0f;
-            float coverage = 2.5f;
-            float upperCoverage = 0.0f;
+            float peak = 0.0f;
+            float baseHalfWidth = 2.5f;
+            float peakHalfWidth = 0.0f;
 
             var linearResult = new LinearResult
-                (name, category, center, coverage, upperCoverage);
+                (name, category, peak, baseHalfWidth, peakHalfWidth);
             float degree = -0.0000001f;
 
             linearResult.GetArea(degree);
@@ -46,12 +46,12 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         {
             string name = "test";
             int category = 1;
-            float center = 0.0f;
-            float coverage = 2.5f;
-            float upperCoverage = 0.0f;
+            float peak = 0.0f;
+            float baseHalfWidth = 2.5f;
+            float peakHalfWidth = 0.0f;
 
             var linearResult = new LinearResult
-                (name, category, center, coverage, upperCoverage);
+                (name, category, peak, baseHalfWidth, peakHalfWidth);
             float degree = 1.0f;
 
             Assert.AreEqual(2.5f, linearResult.GetArea(degree));
@@ -62,12 +62,12 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         {
             string name = "test";
             int category = 1;
-            float center = 0.0f;
-            float coverage = 2.5f;
-            float upperCoverage = 0.0f;
+            float peak = 0.0f;
+            float baseHalfWidth = 2.5f;
+            float peakHalfWidth = 0.0f;
 
             var linearResult = new LinearResult
-                (name, category, center, coverage, upperCoverage);
+                (name, category, peak, baseHalfWidth, peakHalfWidth);
             float degree = 0.5f;
 
             Assert.AreEqual(3.75, linearResult.GetArea(degree));
@@ -78,12 +78,12 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         {
             string name = "test";
             int category = 1;
-            float center = 0.0f;
-            float coverage = 5.0f;
-            float upperCoverage = 2.5f;
+            float peak = 0.0f;
+            float baseHalfWidth = 5.0f;
+            float peakHalfWidth = 2.5f;
 
             var linearResult = new LinearResult
-                (name, category, center, coverage, upperCoverage);
+                (name, category, peak, baseHalfWidth, peakHalfWidth);
             float degree = 1.0f;
 
             Assert.AreEqual(7.5f, linearResult.GetArea(degree));
@@ -94,12 +94,12 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         {
             string name = "test";
             int category = 1;
-            float center = 0.0f;
-            float coverage = 5.0f;
-            float upperCoverage = 2.5f;
+            float peak = 0.0f;
+            float baseHalfWidth = 5.0f;
+            float peakHalfWidth = 2.5f;
 
             var linearResult = new LinearResult
-                (name, category, center, coverage, upperCoverage);
+                (name, category, peak, baseHalfWidth, peakHalfWidth);
             float degree = 0.5f;
 
             Assert.AreEqual(8.75f, linearResult.GetArea(degree));

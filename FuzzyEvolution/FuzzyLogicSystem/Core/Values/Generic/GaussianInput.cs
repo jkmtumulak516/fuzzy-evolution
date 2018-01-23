@@ -5,19 +5,19 @@ namespace FuzzyLogicSystems.Core.Values.Generic
 {
     public class GaussianInput : InputFuzzyMember
     {
-        public GaussianInput(string name, int category, float center,
-            bool ceilLeft, bool ceilRight, float coverage, float upperCoverage) 
-            : base(name, category, center, ceilLeft, ceilRight, coverage, upperCoverage) { }
+        public GaussianInput(string name, int category, float peak,
+            bool ceilLeft, bool ceilRight, float baseHalfWidth, float peakHalfWidth) 
+            : base(name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth) { }
 
         public override float GetMembership(float crispValue)
         {
-            if (CeilLeft && crispValue < Center) return 1.0f;
-            else if (CeilRight && crispValue > Center) return 1.0f;
-            else if (Math.Abs(Center - crispValue) <= UpperCoverage) return 1.0f;
+            if (CeilLeft && crispValue < Peak) return 1.0f;
+            else if (CeilRight && crispValue > Peak) return 1.0f;
+            else if (Math.Abs(Peak - crispValue) <= PeakHalfWidth) return 1.0f;
 
-            float effectiveCenter = crispValue < Center ? Center - UpperCoverage : Center + UpperCoverage;
+            float effectivePeak = crispValue < Peak ? Peak - PeakHalfWidth : Peak + PeakHalfWidth;
 
-            return MathUtil.GaussianDistance(1.0f, effectiveCenter, (Coverage - UpperCoverage) * 2.0f, crispValue);
+            return MathUtil.GaussianDistance(1.0f, effectivePeak, (BaseHalfWidth - PeakHalfWidth) * 2.0f, crispValue);
         }
     }
 }

@@ -7,54 +7,54 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
     public class TestLinearInput
     {
         [TestMethod]
-        public void LinearInputOrdinaryCrispValueEqualToCenter()
+        public void LinearInputOrdinaryCrispValueAtPeak()
         {
             string name = "test";
             int category = 1;
-            float center = 0.0f;
+            float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = false;
-            float coverage = 1.0f;
-            float upperCoverage = 0.0f;
+            float baseHalfWidth = 1.0f;
+            float peakHalfWidth = 0.0f;
 
             var linearInput = new LinearInput
-                (name, category, center, ceilLeft, ceilRight, coverage, upperCoverage);
+                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 0.0f;
 
             Assert.AreEqual(1.0f, linearInput.GetMembership(crispValue));
         }
 
         [TestMethod]
-        public void LinearInputOrdinaryCrispValueBetweenCenterAndEndOfCoverage()
+        public void LinearInputOrdinaryCrispValueBetweenPeakAndEdgeOfBase()
         {
             string name = "test";
             int category = 1;
-            float center = 0.0f;
+            float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = false;
-            float coverage = 1.0f;
-            float upperCoverage = 0.0f;
+            float baseHalfWidth = 1.0f;
+            float peakHalfWidth = 0.0f;
 
             var linearInput = new LinearInput
-                (name, category, center, ceilLeft, ceilRight, coverage, upperCoverage);
+                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 0.5f;
 
             Assert.AreEqual(0.5f, linearInput.GetMembership(crispValue));
         }
 
         [TestMethod]
-        public void LinearInputOrdinaryCrispValueEqualToEndOfCoverage()
+        public void LinearInputOrdinaryCrispValueAtEdgeOfBase()
         {
             string name = "test";
             int category = 1;
-            float center = 0.0f;
+            float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = false;
-            float coverage = 1.0f;
-            float upperCoverage = 0.0f;
+            float baseHalfWidth = 1.0f;
+            float peakHalfWidth = 0.0f;
 
             var linearInput = new LinearInput
-                (name, category, center, ceilLeft, ceilRight, coverage, upperCoverage);
+                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 1.0f;
 
             Assert.AreEqual(0.0f, linearInput.GetMembership(crispValue));
@@ -65,14 +65,14 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         {
             string name = "test";
             int category = 1;
-            float center = 0.0f;
+            float peak = 0.0f;
             bool ceilLeft = true;
             bool ceilRight = false;
-            float coverage = 1.0f;
-            float upperCoverage = 0.0f;
+            float baseHalfWidth = 1.0f;
+            float peakHalfWidth = 0.0f;
 
             var linearInput = new LinearInput
-                (name, category, center, ceilLeft, ceilRight, coverage, upperCoverage);
+                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = -0.5f;
 
             Assert.AreEqual(1.0f, linearInput.GetMembership(crispValue));
@@ -83,50 +83,50 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         {
             string name = "test";
             int category = 1;
-            float center = 0.0f;
+            float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = true;
-            float coverage = 1.0f;
-            float upperCoverage = 0.0f;
+            float baseHalfWidth = 1.0f;
+            float peakHalfWidth = 0.0f;
 
             var linearInput = new LinearInput
-                (name, category, center, ceilLeft, ceilRight, coverage, upperCoverage);
+                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 0.5f;
 
             Assert.AreEqual(1.0f, linearInput.GetMembership(crispValue));
         }
 
         [TestMethod]
-        public void LinearInputUpperCoverageCrispValueWithinCeil()
+        public void LinearInputPeakWidthCrispValueWithinWidthOfPeak()
         {
             string name = "test";
             int category = 1;
-            float center = 0.0f;
+            float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = false;
-            float coverage = 2.0f;
-            float upperCoverage = 1.0f;
+            float baseHalfWidth = 2.0f;
+            float peakHalfWidth = 1.0f;
 
             var linearInput = new LinearInput
-                (name, category, center, ceilLeft, ceilRight, coverage, upperCoverage);
+                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 0.5f;
 
             Assert.AreEqual(1.0f, linearInput.GetMembership(crispValue));
         }
 
         [TestMethod]
-        public void LinearInputUpperCoverageCrispValueBetweenUpperCoverageAndBaseCoverage()
+        public void LinearInputPeakWidthCrispValueBetweenEdgeOfPeakAndEdgeOfBase()
         {
             string name = "test";
             int category = 1;
-            float center = 0.0f;
+            float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = false;
-            float coverage = 2.0f;
-            float upperCoverage = 1.0f;
+            float baseHalfWidth = 2.0f;
+            float peakHalfWidth = 1.0f;
 
             var linearInput = new LinearInput
-                (name, category, center, ceilLeft, ceilRight, coverage, upperCoverage);
+                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 1.5f;
 
             Assert.AreEqual(0.5f, linearInput.GetMembership(crispValue));
