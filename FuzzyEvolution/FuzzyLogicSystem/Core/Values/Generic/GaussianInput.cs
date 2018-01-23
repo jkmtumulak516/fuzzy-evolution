@@ -17,7 +17,7 @@ namespace FuzzyLogicSystems.Core.Values.Generic
 
             float effectiveCenter = crispValue < Center ? Center - UpperCoverage : Center + UpperCoverage;
 
-            return MathUtil.GaussianDistance(1.0f, effectiveCenter, Coverage * 2.0f, crispValue);
+            return MathUtil.GaussianDistance(1.0f, effectiveCenter, (Coverage - UpperCoverage) * 2.0f, crispValue);
         }
     }
 }
