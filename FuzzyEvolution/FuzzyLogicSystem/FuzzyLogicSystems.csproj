@@ -53,6 +53,10 @@
     <Compile Include="Core\IFuzzyLogicSystem.cs" />
     <Compile Include="Core\IFuzzyMember.cs" />
     <Compile Include="Core\IFuzzyRuleBase.cs" />
+    <Compile Include="Core\Rules\Exception\RuleSyntaxException.cs" />
+    <Compile Include="Core\Rules\Operators\AndOperator.cs" />
+    <Compile Include="Core\Rules\Operators\NotOperator.cs" />
+    <Compile Include="Core\Rules\Operators\OrOperator.cs" />
     <Compile Include="Core\Rules\Rule.cs" />
     <Compile Include="Core\Rules\RuleBuilder.cs" />
     <Compile Include="Core\Rules\RuleOperand.cs" />

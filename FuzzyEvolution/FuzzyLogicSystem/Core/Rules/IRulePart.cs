@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FuzzyLogicSystems.Core.Rules
 {
-    interface IRulePart
+    internal interface IRulePart
     {
+        void Evaluate(IDictionary<int, string> fuzzifiedValues, Stack<bool> operandStack);
+        void ToPostFix(IList<IRulePart> postFix, Stack<RuleOperator> operatorStack);
     }
 }
