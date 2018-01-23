@@ -19,36 +19,36 @@ namespace TestFuzzyLogicSystems.Util
         }
 
         [TestMethod]
-        public void TestGaussianDistance2()
+        public void GaussianDistanceValueBetweenCenterAndEndOfWidth()
         {
             float height = 1.0f;
             float center = 0.0f;
-            float width = 4.0f;
-            float value = 1.0f;
+            float width = 2.0f;
+            float value = 0.5f;
 
-            Assert.AreEqual(0.9692332f, MathUtil.GaussianDistance(height, center, width, value), 0.0000001f);
+            Assert.AreEqual(0.6065306f, MathUtil.GaussianDistance(height, center, width, value), 0.0000001f);
         }
 
         [TestMethod]
-        public void TestGaussianDistance3()
+        public void GaussianDistanceValueEqualToEndOfWidth()
         {
             float height = 2.0f;
-            float center = 5.0f;
-            float width = 5.0f;
-            float value = 8.0f;
+            float center = 0.0f;
+            float width = 4.0f;
+            float value = 2.0f;
 
-            Assert.AreEqual(1.6705404f, MathUtil.GaussianDistance(height, center, width, value), 0.0000001f);
+            Assert.AreEqual(0.2706705f, MathUtil.GaussianDistance(height, center, width, value), 0.0000001f);
         }
 
         [TestMethod]
-        public void TestGaussianDistance4()
+        public void GaussianDistanceValueIsBeyondWidth()
         {
-            float height = 1.5f;
-            float center = -3.0f;
-            float width = 2.0f;
-            float value = 0.0f;
+            float height = 1f;
+            float center = 0.0f;
+            float width = 3.0f;
+            float value = 2.5f;
 
-            Assert.AreEqual(0.4869787f, MathUtil.GaussianDistance(height, center, width, value), 0.0000001f);
+            Assert.AreEqual(0.0038659f, MathUtil.GaussianDistance(height, center, width, value), 0.0000001f);
         }
 
         [TestMethod]
@@ -103,23 +103,63 @@ namespace TestFuzzyLogicSystems.Util
         }
 
         [TestMethod]
-        public void TestParallelTrapezoidalArea1()
-        {
+        public void ParallelTrapezoidalAreaUprightTriangle()
+        {   
+            float height = 3.0f;
+            float upperWidth = 0.0f;
+            float lowerWidth = 5.0f;
+
+            Assert.AreEqual(7.5f, MathUtil.ParallelTrapezoidalArea(height, upperWidth, lowerWidth));
         }
 
         [TestMethod]
-        public void TestParallelTrapezoidalArea2()
+        public void ParallelTrapezoidalAreaUpsideDownTriangle()
         {
+            float height = 3.0f;
+            float upperWidth = 5.0f;
+            float lowerWidth = 0.0f;
+
+            Assert.AreEqual(7.5f, MathUtil.ParallelTrapezoidalArea(height, upperWidth, lowerWidth));
         }
 
         [TestMethod]
-        public void TestParallelTrapezoidalArea3()
+        public void ParallelTrapezoidalAreaUprightTrapezoid()
         {
+            float height = 5.0f;
+            float upperWidth = 10.0f;
+            float lowerWidth = 5.0f;
+
+            Assert.AreEqual(37.5f, MathUtil.ParallelTrapezoidalArea(height, upperWidth, lowerWidth));
         }
 
         [TestMethod]
-        public void TestParallelTrapezoidalArea4()
+        public void ParallelTrapezoidalAreaUpsideDownTrapezoidTest()
         {
+            float height = 5.0f;
+            float upperWidth = 5.0f;
+            float lowerWidth = 10.0f;
+
+            Assert.AreEqual(37.5f, MathUtil.ParallelTrapezoidalArea(height, upperWidth, lowerWidth));
+        }
+
+        [TestMethod]
+        public void ParallelTrapezoidalAreaZeroHeight()
+        {
+            float height = 0.0f;
+            float upperWidth = 1.0f;
+            float lowerWidth = 1.0f;
+
+            Assert.AreEqual(0.0f, MathUtil.ParallelTrapezoidalArea(height, upperWidth, lowerWidth));
+        }
+
+        [TestMethod]
+        public void ParallelTrapezoidalAreaZeroWidth()
+        {
+            float height = 1.0f;
+            float upperWidth = 0.0f;
+            float lowerWidth = 0.0f;
+
+            Assert.AreEqual(0.0f, MathUtil.ParallelTrapezoidalArea(height, upperWidth, lowerWidth));
         }
     }
 }
