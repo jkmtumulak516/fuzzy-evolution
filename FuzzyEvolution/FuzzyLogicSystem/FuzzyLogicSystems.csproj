@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Core\Generic\Defuzzifier\WeightedAverageDefuzzifier.cs" />
     <Compile Include="Core\Generic\Defuzzifier\CenterOfSumsDefuzzifier.cs" />
+    <Compile Include="Core\Generic\Fuzzifier\Fuzzifier.cs" />
     <Compile Include="Core\Generic\Fuzzifier\GaussianFuzzifier.cs" />
     <Compile Include="Core\Generic\Fuzzifier\LinearFuzzifier.cs" />
     <Compile Include="Core\Generic\FuzzyLogicSystem.cs" />

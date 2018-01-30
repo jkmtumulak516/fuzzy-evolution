@@ -13,5 +13,7 @@ namespace FuzzyLogicSystems.Core
         float Peak { get; }
         float BaseHalfWidth { get; }
         float PeakHalfWidth { get; }
+
+        bool Contains(float degree);
     }
 }

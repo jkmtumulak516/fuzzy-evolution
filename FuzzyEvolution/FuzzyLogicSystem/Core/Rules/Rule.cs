@@ -27,7 +27,7 @@ namespace FuzzyLogicSystems.Core.Rules
         public HashSet<int> Categories { get => _categories; }
         public ResultFuzzyMember Result { get => _result; }
 
-        public FuzzyValue Evaluate(IDictionary<int, string> fuzzifiedValues, float degree)
+        public FuzzyValue<ResultFuzzyMember> Evaluate(IDictionary<int, string> fuzzifiedValues, float degree)
         {
             var operandStack = new Stack<bool>();
 
@@ -36,7 +36,7 @@ namespace FuzzyLogicSystems.Core.Rules
 
             bool outcome = operandStack.Pop();
 
-            return outcome ? new FuzzyValue(degree, Result) : null;
+            return outcome ? new FuzzyValue<ResultFuzzyMember>(degree, Result) : null;
         }
 
         internal void ToPostFix()

@@ -5,6 +5,6 @@ namespace FuzzyLogicSystems.Core
 {
     interface IFuzzifier
     {
-        IDictionary<int, IList<FuzzyValue<InputFuzzyMember>>> Fuzzify(IDictionary<int, float> crispValues, IDictionary<int, FuzzySet> fuzzySets);
+        IDictionary<int, IList<FuzzyValue<InputFuzzyMember>>> Fuzzify(IDictionary<int, float> crispValues, IDictionary<int, FuzzySet<InputFuzzyMember>> fuzzySets);
     }
 }

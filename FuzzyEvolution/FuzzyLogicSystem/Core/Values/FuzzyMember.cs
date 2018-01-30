@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+
 namespace FuzzyLogicSystems.Core.Values
 {
     public abstract class FuzzyMember : IFuzzyMember
@@ -23,5 +24,10 @@ namespace FuzzyLogicSystems.Core.Values
         public float Peak { get => _peak; }
         public float BaseHalfWidth { get => _base_half_width; }
         public float PeakHalfWidth { get => _peak_half_width; }
+
+        public bool Contains(float degree)
+        {
+            return Math.Abs(Peak - degree) < BaseHalfWidth;
+        }
     }
 }
