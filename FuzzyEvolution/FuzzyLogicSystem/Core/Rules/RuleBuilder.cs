@@ -1,13 +1,20 @@
 ﻿using System.Collections.Generic;
 using FuzzyLogicSystems.Core.Values;
 using FuzzyLogicSystems.Core.Rules.Operators;
+using FuzzyLogicSystems.Core.Rules.Exception;
 
 namespace FuzzyLogicSystems.Core.Rules
 {
     public class RuleBuilder
     {
+        private const int None = 0;
+        private const int Operand = 1;
+        private const int Operator = 2;
+
         private readonly List<IRulePart> _ruleParts;
         private readonly HashSet<int> _categories;
+
+        private int LastAdded = 0;
 
         public RuleBuilder()
         {
@@ -20,29 +27,45 @@ namespace FuzzyLogicSystems.Core.Rules
 
         public RuleBuilder Var(int category, string name, bool negate = false)
         {
+            if (LastAdded == Operator) throw new RuleSyntaxException("Cannot add Operand. Operands must be separated by an Operator.");
+
             if (negate)
                 RuleParts.Add(NotOperator.Get);
 
             RuleParts.Add(new RuleOperand(category, name));
 
+            LastAdded = Operand;
             return this;
         }
 
         public RuleBuilder And()
         {
+            if (LastAdded == Operand) throw new RuleSyntaxException("Cannot add Operator. Operators must be separated by an Operand.");
+            if (LastAdded == None) throw new RuleSyntaxException("Cannot add Operator. An Operand must be added first.");
+
             RuleParts.Add(AndOperator.Get);
+
+            LastAdded = Operator;
             return this;
         }
 
         public RuleBuilder Or()
         {
+            if (LastAdded == Operand) throw new RuleSyntaxException("Cannot add Operator. Operators must be separated by an Operand.");
+            if (LastAdded == None) throw new RuleSyntaxException("Cannot add Operator. An Operand must be added first.");
+
             RuleParts.Add(OrOperator.Get);
+
+            LastAdded = Operator;
             return this;
         }
 
-        public Rule Build(ResultFuzzyMember result)
+        public ParentRule Build(ResultFuzzyMember result)
         {
-            var rule = new Rule(RuleParts, Categories, result);
+            if (LastAdded == Operator) throw new RuleSyntaxException("Cannot build Rule. Rules cannot end with operators.");
+            if (LastAdded == None) throw new RuleSyntaxException("Cannot build Rule. Rules is empty.");
+
+            var rule = new ParentRule(RuleParts, Categories, result);
             return rule;
         }
 

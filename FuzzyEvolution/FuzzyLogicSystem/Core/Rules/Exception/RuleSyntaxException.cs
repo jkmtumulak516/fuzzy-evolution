@@ -1,5 +1,5 @@
 ﻿
-namespace FuzzyLogicSystem.Core.Rules.Exception
+namespace FuzzyLogicSystems.Core.Rules.Exception
 {
     public class RuleSyntaxException : System.Exception
     {
