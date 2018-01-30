@@ -5,6 +5,8 @@ namespace FuzzyLogicSystems.Core
 {
     interface IFuzzyRuleBase
     {
-        List<FuzzyValue<ResultFuzzyMember>> Evaluate(IDictionary<int, IList<FuzzyValue<InputFuzzyMember>>> fuzzyValues);
+        IList<FuzzyValue<ResultFuzzyMember>> Evaluate(IDictionary<int, IList<FuzzyValue<InputFuzzyMember>>> fuzzyValues);
+        IDictionary<int, FuzzySet> InputFuzzySets { get;}
+        FuzzySet ResultFuzzySet { get; }
     }
 }
