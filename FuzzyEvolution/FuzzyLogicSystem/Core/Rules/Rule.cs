@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using FuzzyLogicSystems.Core.Values;
 
 namespace FuzzyLogicSystems.Core.Rules
 {
-    public class Rule
+    public abstract class Rule
     {
         private readonly List<IRulePart> _rule_parts;
         private readonly List<IRulePart> _post_fix_parts;
@@ -26,8 +22,8 @@ namespace FuzzyLogicSystems.Core.Rules
             ToPostFix();
         }
 
-        private List<IRulePart> RuleParts { get => _rule_parts; }
-        private List<IRulePart> PostFixParts { get => _post_fix_parts; }
+        internal List<IRulePart> RuleParts { get => _rule_parts; }
+        internal List<IRulePart> PostFixParts { get => _post_fix_parts; }
         public HashSet<int> Categories { get => _categories; }
         public ResultFuzzyMember Result { get => _result; }
 

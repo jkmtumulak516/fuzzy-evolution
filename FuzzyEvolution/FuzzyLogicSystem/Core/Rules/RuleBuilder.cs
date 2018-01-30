@@ -40,9 +40,9 @@ namespace FuzzyLogicSystems.Core.Rules
             return this;
         }
 
-        public Rule Build(ResultFuzzyMember result)
+        public ParentRule Build(ResultFuzzyMember result)
         {
-            var rule = new Rule(RuleParts, Categories, result);
+            var rule = new ParentRule(RuleParts, Categories, result);
             return rule;
         }
 

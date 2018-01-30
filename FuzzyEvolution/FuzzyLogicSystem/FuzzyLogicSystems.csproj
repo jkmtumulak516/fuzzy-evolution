@@ -7,7 +7,7 @@
     <ProjectGuid>{D0E83039-099A-4930-9704-0FEF26584873}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FuzzyLogicSystem</RootNamespace>
+    <RootNamespace>FuzzyLogicSystems</RootNamespace>
     <AssemblyName>FuzzyLogicSystem</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -54,14 +54,16 @@
     <Compile Include="Core\IFuzzyMember.cs" />
     <Compile Include="Core\IFuzzyRuleBase.cs" />
     <Compile Include="Core\Rules\Exception\RuleSyntaxException.cs" />
+    <Compile Include="Core\Rules\Rule.cs" />
     <Compile Include="Core\Rules\Operators\AndOperator.cs" />
     <Compile Include="Core\Rules\Operators\NotOperator.cs" />
     <Compile Include="Core\Rules\Operators\OrOperator.cs" />
-    <Compile Include="Core\Rules\Rule.cs" />
+    <Compile Include="Core\Rules\ParentRule.cs" />
     <Compile Include="Core\Rules\RuleBuilder.cs" />
     <Compile Include="Core\Rules\RuleOperand.cs" />
     <Compile Include="Core\Rules\RuleOperator.cs" />
     <Compile Include="Core\Rules\IRulePart.cs" />
+    <Compile Include="Core\Rules\SubRule.cs" />
     <Compile Include="Core\Values\FuzzyMember.cs" />
     <Compile Include="Core\Values\FuzzyValue.cs" />
     <Compile Include="Core\Values\Generic\GaussianInput.cs" />
