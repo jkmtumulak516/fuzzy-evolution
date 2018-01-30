@@ -8,5 +8,6 @@ namespace FuzzyLogicSystems.Core
 {
     interface IFuzzyLogicSystem
     {
+        float Evaluate(IDictionary<int, float> crispValues);
     }
 }
