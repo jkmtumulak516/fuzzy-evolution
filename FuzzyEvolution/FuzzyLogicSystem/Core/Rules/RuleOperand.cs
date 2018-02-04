@@ -6,24 +6,21 @@ namespace FuzzyLogicSystems.Core.Rules
 {
     internal class RuleOperand : IRulePart
     {
-        private readonly int _category;
-        private readonly string _name;
+        private readonly IFuzzyMember _fuzzy_member;
 
-        internal RuleOperand(int category, string name)
+        internal RuleOperand(IFuzzyMember fuzzyMember)
         {
-            _category = category;
-            _name = name;
+            _fuzzy_member = fuzzyMember;
         }
 
-        internal int Category { get => _category; }
-        internal string Name { get => _name; }
+        internal IFuzzyMember FuzzyMember { get => _fuzzy_member; }
 
         public void Evaluate(IDictionary<int, string> fuzzifiedValues, Stack<bool> operandStack)
         {
             bool value = false;
 
-            if (fuzzifiedValues.ContainsKey(Category))
-                value = fuzzifiedValues[Category].Equals(Name);
+            if (fuzzifiedValues.ContainsKey(FuzzyMember.Category))
+                value = fuzzifiedValues[FuzzyMember.Category].Equals(FuzzyMember);
 
             operandStack.Push(value);
         }
