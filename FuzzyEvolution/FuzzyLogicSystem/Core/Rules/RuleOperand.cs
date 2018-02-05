@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using FuzzyLogicSystems.Core.Values;
 
 namespace FuzzyLogicSystems.Core.Rules
@@ -15,12 +14,12 @@ namespace FuzzyLogicSystems.Core.Rules
 
         internal IFuzzyMember FuzzyMember { get => _fuzzy_member; }
 
-        public void Evaluate(IDictionary<int, string> fuzzifiedValues, Stack<bool> operandStack)
+        public void Evaluate(IDictionary<int, FuzzyValue<InputFuzzyMember>> fuzzifiedValues, Stack<bool> operandStack)
         {
             bool value = false;
 
             if (fuzzifiedValues.ContainsKey(FuzzyMember.Category))
-                value = fuzzifiedValues[FuzzyMember.Category].Equals(FuzzyMember);
+                value = fuzzifiedValues[FuzzyMember.Category].FuzzyMember.Name.Equals(FuzzyMember.Name);
 
             operandStack.Push(value);
         }

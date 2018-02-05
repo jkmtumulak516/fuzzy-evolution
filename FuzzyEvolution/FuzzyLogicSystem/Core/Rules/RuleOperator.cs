@@ -3,7 +3,7 @@ using FuzzyLogicSystems.Core.Values;
 
 namespace FuzzyLogicSystems.Core.Rules
 {
-    internal enum BooleanOperator : int {OR = 0, AND = 1, NOT = 2} 
+    internal enum BooleanOperator : int { OR = 0, AND = 1 } 
 
     internal abstract class RuleOperator : IRulePart
     {
@@ -16,7 +16,7 @@ namespace FuzzyLogicSystems.Core.Rules
 
         public BooleanOperator OperatorType { get => _operator_type; }
 
-        public abstract void Evaluate(IDictionary<int, string> fuzzifiedValues, Stack<bool> operandStack);
+        public abstract void Evaluate(IDictionary<int, FuzzyValue<InputFuzzyMember>> fuzzifiedValues, Stack<bool> operandStack);
         public abstract void ToPostFix(IList<IRulePart> postFix, Stack<RuleOperator> operatorStack);
     }
 }

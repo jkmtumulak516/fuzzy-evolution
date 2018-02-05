@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using FuzzyLogicSystems.Core.Values;
 
 namespace FuzzyLogicSystems.Core.Rules.Operators
@@ -21,7 +20,7 @@ namespace FuzzyLogicSystems.Core.Rules.Operators
             }
         }
 
-        public override void Evaluate(IDictionary<int, string> fuzzifiedValues, Stack<bool> operandStack)
+        public override void Evaluate(IDictionary<int, FuzzyValue<InputFuzzyMember>> fuzzifiedValues, Stack<bool> operandStack)
         {
             bool var1 = operandStack.Pop();
             bool var2 = operandStack.Pop();
@@ -35,16 +34,6 @@ namespace FuzzyLogicSystems.Core.Rules.Operators
             {
                 postFix.Add(this);
                 return;
-            }
-
-            else if (operatorStack.Peek().OperatorType == BooleanOperator.NOT)
-            {
-                postFix.Add(operatorStack.Pop());
-
-                while (operatorStack.Count > 0 && 
-                    (operatorStack.Peek().OperatorType == BooleanOperator.NOT ||
-                    operatorStack.Peek().OperatorType == BooleanOperator.AND))
-                    postFix.Add(operatorStack.Pop());
             }
 
             else if (operatorStack.Peek().OperatorType == BooleanOperator.AND)

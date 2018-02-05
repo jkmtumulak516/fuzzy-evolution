@@ -25,12 +25,9 @@ namespace FuzzyLogicSystems.Core.Rules
         private List<IRulePart> RuleParts { get => _ruleParts; }
         private HashSet<int> Categories { get => _categories; }
 
-        public RuleBuilder Var(IFuzzyMember fuzzyMember, bool negate = false)
+        public RuleBuilder Var(IFuzzyMember fuzzyMember)
         {
             if (LastAdded == Operator) throw new RuleSyntaxException("Cannot add Operand. Operands must be separated by an Operator.");
-
-            if (negate)
-                RuleParts.Add(NotOperator.Get);
 
             RuleParts.Add(new RuleOperand(fuzzyMember));
 

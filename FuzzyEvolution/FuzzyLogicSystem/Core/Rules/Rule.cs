@@ -7,27 +7,23 @@ namespace FuzzyLogicSystems.Core.Rules
     {
         private readonly List<IRulePart> _rule_parts;
         private readonly List<IRulePart> _post_fix_parts;
-        private readonly HashSet<int> _categories;
         private readonly ResultFuzzyMember _result;
 
-        internal Rule(List<IRulePart> ruleParts, HashSet<int> categories, ResultFuzzyMember result)
+        internal Rule(List<IRulePart> ruleParts, ResultFuzzyMember result)
         {
             _rule_parts = ruleParts;
             _post_fix_parts = new List<IRulePart>(ruleParts.Count);
-
-            _categories = categories;
 
             _result = result;
 
             ToPostFix();
         }
 
-        internal List<IRulePart> RuleParts { get => _rule_parts; }
-        internal List<IRulePart> PostFixParts { get => _post_fix_parts; }
-        public HashSet<int> Categories { get => _categories; }
+        internal IList<IRulePart> RuleParts { get => _rule_parts; }
+        internal IList<IRulePart> PostFixParts { get => _post_fix_parts; }
         public ResultFuzzyMember Result { get => _result; }
 
-        public FuzzyValue<ResultFuzzyMember> Evaluate(IDictionary<int, string> fuzzifiedValues, float degree)
+        public bool Evaluate(IDictionary<int, FuzzyValue<InputFuzzyMember>> fuzzifiedValues)
         {
             var operandStack = new Stack<bool>();
 
@@ -36,7 +32,7 @@ namespace FuzzyLogicSystems.Core.Rules
 
             bool outcome = operandStack.Pop();
 
-            return outcome ? new FuzzyValue<ResultFuzzyMember>(degree, Result) : null;
+            return outcome;
         }
 
         internal void ToPostFix()
