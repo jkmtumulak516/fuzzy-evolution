@@ -1,9 +1,5 @@
-﻿using FuzzyLogicSystems.Core.Values;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FuzzyLogicSystems.Core.Generic.RuleBase.Util
 {
@@ -11,7 +7,7 @@ namespace FuzzyLogicSystems.Core.Generic.RuleBase.Util
     {
         public IList<IList<T>> FindCombinations<T>(IList<IList<T>> listOfLists)
         {
-            var combinations = new List<List<T>>();
+            var combinations = new List<IList<T>>();
 
             // prime the data
             foreach (var value in listOfLists[0])
@@ -19,14 +15,14 @@ namespace FuzzyLogicSystems.Core.Generic.RuleBase.Util
 
             foreach (var set in listOfLists.Skip(1))
             {
-                var temp = from value in set
+                IEnumerable<IList<T>> temp = from value in set
                            from combination in combinations
                            select new List<T>(combination) { value };
 
                 combinations = temp.ToList();
             }
 
-            return combinations as IList<IList<T>>;
+            return combinations;
         }
     }
 }

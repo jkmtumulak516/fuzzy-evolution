@@ -10,31 +10,26 @@ namespace FuzzyLogicSystems.Core.Rules
 
         public List<SubRule> SubRules()
         {
-            var result = new List<SubRule>();
-            var currentSubRule = new List<IRulePart>();
+            var subRules = new List<SubRule>();
+            int startIndex = 0;
+            int count = 0;
+            RuleOperator ruleOperator = null;
 
-            foreach(var rulePart in RuleParts)
+            foreach (var rulePart in RuleParts)
             {
-                RuleOperator ruleOperator = null;
-
-                if ((ruleOperator = rulePart as RuleOperator) != null)
+                if ((ruleOperator = rulePart as RuleOperator) != null && ruleOperator.OperatorType == BooleanOperator.OR)
                 {
-                    if (ruleOperator.OperatorType == BooleanOperator.OR)
-                    {
-                        result.Add(new SubRule(currentSubRule, this));
-                        currentSubRule = new List<IRulePart>();
-                    }
-
-                    else currentSubRule.Add(rulePart);
+                    subRules.Add(new SubRule(RuleParts.GetRange(startIndex, count), this));
+                    startIndex = count + 1;
+                    count = 0;
                 }
 
-                else currentSubRule.Add(rulePart);
+                else count++;
             }
 
-            if (currentSubRule.Count > 0)
-                result.Add(new SubRule(currentSubRule, this));
+            subRules.Add(new SubRule(RuleParts.GetRange(startIndex, count), this));
 
-            return result;
+            return subRules;
         }
     }
 }

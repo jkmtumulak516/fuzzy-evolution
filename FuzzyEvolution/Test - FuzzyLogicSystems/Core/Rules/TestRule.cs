@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FuzzyLogicSystems.Core.Rules;
 using static TestFuzzyLogicSystems.Core.DummyFuzzySets;
@@ -311,6 +312,59 @@ namespace TestFuzzyLogicSystems.Core.Rules
             };
 
             Assert.IsFalse(rule.Evaluate(input));
+        }
+
+        [TestMethod]
+        public void RulesGetSubRules()
+        {
+            var rb1 = new RuleBuilder();
+
+            var rule
+                = rb1
+                .Var(temperature.Hot)
+                .And()
+                .Var(height.SlightlyShort)
+                .Or()
+                .Var(temperature.Cold)
+                .And()
+                .Var(height.Tall)
+                .Or()
+                .Var(temperature.Warm)
+                .And()
+                .Var(height.Short)
+                .Build(special.Unique);
+            
+            try
+            {
+                var subRules = rule.SubRules();
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail("Getting SubRules failed: " + ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void RulesSubRulesEvaluateTRUE()
+        {
+            var rb = new RuleBuilder();
+
+            var rule
+                = rb
+                .Var(temperature.Hot)
+                .And()
+                .Var(height.Tall)
+                .Build(special.Unique);
+
+            var subRule = rule.SubRules()[0];
+
+            var input = new Dictionary<int, FuzzyValue<InputFuzzyMember>>
+            {
+                { temperature.Category, new FuzzyValue<InputFuzzyMember>(.7f, temperature.Hot)},
+                { height.Category, new FuzzyValue<InputFuzzyMember>(.7f, height.Tall)}
+            };
+
+            Assert.IsTrue(subRule.Evaluate(input));
         }
     }
 }

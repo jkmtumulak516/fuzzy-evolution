@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Collections.Generic;
 using FuzzyLogicSystems.Core.Values;
 using FuzzyLogicSystems.Core.Rules;
@@ -28,11 +27,11 @@ namespace FuzzyLogicSystems.Core.Generic.RuleBase
         public IDictionary<int, FuzzySet<InputFuzzyMember>> InputFuzzySets { get => _input_fuzzy_sets; }
         public FuzzySet<ResultFuzzyMember> ResultFuzzySet { get => _result_fuzzy_set; }
         private EvaluationTree Evaluator { get => _evaluator; }
-
+        
         public IList<FuzzyValue<ResultFuzzyMember>> Evaluate(IDictionary<int, IList<FuzzyValue<InputFuzzyMember>>> fuzzyValues)
         {
             // combine the fuzzified values of different 
-            var combinations = new CombinationFinder().FindCombinations(fuzzyValues.ToList() as IList<IList<FuzzyValue<InputFuzzyMember>>>);
+            var combinations = new CombinationFinder().FindCombinations(fuzzyValues.Values.ToList());
             var resultList = new List<FuzzyValue<ResultFuzzyMember>>(combinations.Count);
 
             foreach (var combination in combinations)
@@ -46,7 +45,7 @@ namespace FuzzyLogicSystems.Core.Generic.RuleBase
                     resultList.Add(new FuzzyValue<ResultFuzzyMember>(degree, result));
             }
 
-            throw new NotImplementedException();
+            return resultList;
         }
     }
 }

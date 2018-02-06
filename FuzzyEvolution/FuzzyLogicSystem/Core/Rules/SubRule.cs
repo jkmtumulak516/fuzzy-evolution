@@ -21,7 +21,7 @@ namespace FuzzyLogicSystems.Core.Rules
                     var ruleOperand = rulePart as RuleOperand;
                     int category = ruleOperand.FuzzyMember.Category;
 
-                    if (_variables.ContainsKey(category))
+                    if (!_variables.ContainsKey(category))
                         _variables.Add(category, ruleOperand);
 
                     else
@@ -31,6 +31,7 @@ namespace FuzzyLogicSystems.Core.Rules
         }
 
         internal RuleOperand this[int category] { get => _variables.ContainsKey(category) ? _variables[category] : null; }
+        internal ICollection<int> Categories { get => _variables.Keys; }
         internal Rule Parent { get => _parent; }
     }
 }

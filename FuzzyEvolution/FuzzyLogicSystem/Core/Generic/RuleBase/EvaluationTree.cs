@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using FuzzyLogicSystems.Core.Rules;
 using FuzzyLogicSystems.Core.Values;
+using System.Text;
 
 namespace FuzzyLogicSystems.Core.Generic.RuleBase
 {
@@ -14,24 +15,25 @@ namespace FuzzyLogicSystems.Core.Generic.RuleBase
 
             public EvaluationTree(IList<FuzzySet<InputFuzzyMember>> inputFuzzySets, IEnumerable<ParentRule> rules)
             {
-                _root = new BranchNode(this);
-                // key: depth, value: category
+                //key: depth, value: category
                 _category_order = new Dictionary<int, int>();
-                
+
                 // determine the order of the categories
-                int i = 0;
+                int i = 1;
                 foreach (var fuzzySet in inputFuzzySets)
                     _category_order.Add(i++, fuzzySet.Category);
 
                 // determine max depth of the tree
                 _max_depth = _category_order.Count + 1;
 
+                _root = new BranchNode(this);
+
                 foreach (var rule in rules)
                     AddRule(rule);
             }
 
             public EvaluationNode Root { get => _root; }
-            public IDictionary<int, int>  CategoryOrder { get => _category_order; }
+            public IDictionary<int, int> CategoryOrder { get => _category_order; }
             public int MaxDepth { get => _max_depth; }
 
             private void AddRule(ParentRule parentRule)
@@ -68,7 +70,7 @@ namespace FuzzyLogicSystems.Core.Generic.RuleBase
                 _tree = parent.Tree;
                 _parent = parent;
                 _depth = parent.Depth + 1;
-                _category = Tree.CategoryOrder[_depth];
+                _category = Tree.CategoryOrder.ContainsKey(_depth) ? Tree.CategoryOrder[_depth] : 0;
             }
 
             public EvaluationTree Tree { get => _tree; }
@@ -85,29 +87,19 @@ namespace FuzzyLogicSystems.Core.Generic.RuleBase
         private class BranchNode : EvaluationNode
         {
             private readonly IDictionary<string, EvaluationNode> _children;
-            private readonly EvaluationNode _nil_child;
+            private EvaluationNode _nil_child;
             private readonly bool _children_are_leaves;
-            
+
             public BranchNode(EvaluationTree tree) : base(tree)
             {
                 _children = new Dictionary<string, EvaluationNode>(3);
                 _children_are_leaves = Depth == Tree.MaxDepth - 1;
-
-                if (!ChildrenAreLeaves)
-                    _nil_child = new BranchNode(tree);
-                else
-                    _nil_child = new LeafNode(tree);
             }
 
             public BranchNode(EvaluationNode parent) : base(parent)
             {
                 _children = new Dictionary<string, EvaluationNode>(3);
                 _children_are_leaves = Depth == Tree.MaxDepth - 1;
-
-                if (!ChildrenAreLeaves)
-                    _nil_child = new BranchNode(parent);
-                else
-                    _nil_child = new LeafNode(parent);
             }
 
             public IDictionary<string, EvaluationNode> Children { get => _children; }
@@ -119,37 +111,47 @@ namespace FuzzyLogicSystems.Core.Generic.RuleBase
                 if (fuzzifiedValues.ContainsKey(Category))
                 {
                     string name = fuzzifiedValues[Category].FuzzyMember.Name;
-                    return Children[fuzzifiedValues[Category].FuzzyMember.Name].Evaluate(fuzzifiedValues);
+                    return Children[name].Evaluate(fuzzifiedValues);
                 }
-                    
+
                 else
-                    return NilChild.Evaluate(fuzzifiedValues);
+                    return NilChild?.Evaluate(fuzzifiedValues);
             }
 
-            public override void AddRule(SubRule rule)
+            public override void AddRule(SubRule subRule)
             {
-                var operand = rule[Category];
+                //throw new System.Exception(subRule.Categories.Count.ToString());
+                
+                var ruleOperand = subRule[Category];
 
-                if (operand != null) // if an operand in this node's category exists, add to respective child node
+                if (ruleOperand == null) // no ruleOperand within the given category is within this subRule
                 {
-                    if (!Children.ContainsKey(operand.FuzzyMember.Name)) // if corresponding child node does not exist
+                    if (NilChild == null)
                     {
-                        EvaluationNode childNode = null;
-
-                        // add either a leaf or branch node as child
-                        if (!ChildrenAreLeaves) 
-                            childNode = new BranchNode(Parent);
+                        if (!ChildrenAreLeaves)
+                            _nil_child = new BranchNode(this);
                         else
-                            childNode = new LeafNode(Parent);
-
-                        Children.Add(operand.FuzzyMember.Name, childNode);
+                            _nil_child = new LeafNode(this);
                     }
 
-                    Children[operand.FuzzyMember.Name].AddRule(rule);
+                    NilChild.AddRule(subRule);
                 }
 
-                else // if an operand in this node's category DOES NOT exist, add to the nil node
-                    NilChild.AddRule(rule);
+                else // a ruleOperand DOES exist in this node's particular category
+                {
+                    string name = ruleOperand.FuzzyMember.Name;
+
+                    if (!Children.ContainsKey(name))
+                    {
+                        if (!ChildrenAreLeaves)
+                            Children.Add(name, new BranchNode(this));
+                        else
+                            Children.Add(name, new LeafNode(this));
+                    }
+
+                    string temp = Children.ToString();
+                    Children[name].AddRule(subRule);
+                }
             }
         }
 

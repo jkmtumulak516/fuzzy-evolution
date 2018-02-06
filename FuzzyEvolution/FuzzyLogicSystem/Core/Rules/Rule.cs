@@ -29,8 +29,8 @@ namespace FuzzyLogicSystems.Core.Rules
             ToPostFix();
         }
 
-        internal IList<IRulePart> RuleParts { get => _rule_parts; }
-        internal IList<IRulePart> PostFixParts { get => _post_fix_parts; }
+        internal List<IRulePart> RuleParts { get => _rule_parts; }
+        internal List<IRulePart> PostFixParts { get => _post_fix_parts; }
         public ResultFuzzyMember Result { get => _result; }
 
         public bool Evaluate(IDictionary<int, FuzzyValue<InputFuzzyMember>> fuzzifiedValues)

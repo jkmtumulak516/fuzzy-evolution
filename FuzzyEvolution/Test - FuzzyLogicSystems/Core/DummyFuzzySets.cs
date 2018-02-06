@@ -108,7 +108,7 @@ namespace TestFuzzyLogicSystems.Core
                 set.Add(_unoriginal);
 
                 // cold
-                _plain = new LinearResult("Plain", this, 20, 25, 20);
+                _plain = new LinearResult("Plain", this, 20, 30, 20);
                 set.Add(_plain);
 
                 return set;

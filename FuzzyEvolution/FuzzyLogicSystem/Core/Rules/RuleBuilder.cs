@@ -11,19 +11,19 @@ namespace FuzzyLogicSystems.Core.Rules
         private const int Operand = 1;
         private const int Operator = 2;
 
-        private readonly List<IRulePart> _ruleParts;
-        private readonly HashSet<int> _categories;
+        private List<IRulePart> _rule_parts;
+        private HashSet<int> _categories;
 
         private int LastAdded;
 
         public RuleBuilder()
         {
-            _ruleParts = new List<IRulePart>();
+            _rule_parts = new List<IRulePart>();
             _categories = new HashSet<int>();
             LastAdded = None;
         }
 
-        private List<IRulePart> RuleParts { get => _ruleParts; }
+        private List<IRulePart> RuleParts { get => _rule_parts; }
         private HashSet<int> Categories { get => _categories; }
 
         public RuleBuilder Var(IFuzzyMember fuzzyMember)
@@ -69,8 +69,9 @@ namespace FuzzyLogicSystems.Core.Rules
 
         public void Reset()
         {
-            RuleParts.Clear();
-            Categories.Clear();
+            LastAdded = None;
+            _rule_parts = new List<IRulePart>();
+            _categories = new HashSet<int>();
         }
     }
 }
