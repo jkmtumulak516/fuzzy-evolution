@@ -1,17 +1,20 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FuzzyLogicSystems.Core.Values;
 using FuzzyLogicSystems.Core.Values.Generic;
+using System.Collections.Generic;
 
 namespace TestFuzzyLogicSystems.Core.Values.Generic
 {
     [TestClass]
     public class TestGaussianInput
     {
+        private FuzzySet<InputFuzzyMember> inputFuzzySet = new TestFuzzySet(1);
+
         [TestMethod]
         public void GaussianInputOrdinaryCrispValueAtPeak()
         {
             string name = "test";
-            int category = 1;
             float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = false;
@@ -19,7 +22,7 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
             float peakHalfWidth = 0.0f;
 
             var gaussianInput = new GaussianInput
-                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
+                (name, inputFuzzySet, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 0.0f;
 
             Assert.AreEqual(1.0f, gaussianInput.GetMembership(crispValue));
@@ -29,7 +32,6 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         public void GaussianInputOrdinaryCrispValueBetweenPeakAndEdgeOfBase()
         {
             string name = "test";
-            int category = 1;
             float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = false;
@@ -37,7 +39,7 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
             float peakHalfWidth = 0.0f;
 
             var gaussianInput = new GaussianInput
-                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
+                (name, inputFuzzySet, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 0.5f;
 
             Assert.AreEqual(0.6065306f, gaussianInput.GetMembership(crispValue), 0.0000001f);
@@ -47,7 +49,6 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         public void GaussianInputOrdinaryCrispValueEqualToEdgeOfBase()
         {
             string name = "test";
-            int category = 1;
             float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = false;
@@ -55,7 +56,7 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
             float peakHalfWidth = 0.0f;
 
             var gaussianInput = new GaussianInput
-                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
+                (name, inputFuzzySet, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 2.0f;
 
             Assert.AreEqual(0.1353352f, gaussianInput.GetMembership(crispValue), 0.0000001f);
@@ -65,7 +66,6 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         public void GaussianInputOrdinaryCrispValueBeyondEdgeOfBase()
         {
             string name = "test";
-            int category = 1;
             float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = false;
@@ -73,7 +73,7 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
             float peakHalfWidth = 0.0f;
 
             var gaussianInput = new GaussianInput
-                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
+                (name, inputFuzzySet, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 2.5f;
 
             Assert.AreEqual(0.0038659f, gaussianInput.GetMembership(crispValue), 0.0000001f);
@@ -83,7 +83,6 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         public void GaussianInputCeilLeftCrispValueWithinCeil()
         {
             string name = "test";
-            int category = 1;
             float peak = 0.0f;
             bool ceilLeft = true;
             bool ceilRight = false;
@@ -91,7 +90,7 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
             float peakHalfWidth = 0.0f;
 
             var gaussianInput = new GaussianInput
-                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
+                (name, inputFuzzySet, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = -1.0f;
 
             Assert.AreEqual(1.0f, gaussianInput.GetMembership(crispValue));
@@ -101,7 +100,6 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         public void GaussianInputCeilRightCrispValueWithinCeil()
         {
             string name = "test";
-            int category = 1;
             float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = true;
@@ -109,7 +107,7 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
             float peakHalfWidth = 0.0f;
 
             var gaussianInput = new GaussianInput
-                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
+                (name, inputFuzzySet, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 1.0f;
 
             Assert.AreEqual(1.0f, gaussianInput.GetMembership(crispValue));
@@ -119,7 +117,6 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         public void GaussianInputPeakWidthCrispValueWithinWidthOfPeak()
         {
             string name = "test";
-            int category = 1;
             float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = false;
@@ -127,7 +124,7 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
             float peakHalfWidth = 1.0f;
 
             var gaussianInput = new GaussianInput
-                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
+                (name, inputFuzzySet, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 0.5f;
 
             Assert.AreEqual(1.0f, gaussianInput.GetMembership(crispValue));
@@ -137,7 +134,6 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         public void GaussianInputPeakWidthCrispValueBetweenEdgeOfPeakAndEdgeOfBase()
         {
             string name = "test";
-            int category = 1;
             float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = false;
@@ -145,10 +141,20 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
             float peakHalfWidth = 1.0f;
 
             var gaussianInput = new GaussianInput
-                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
+                (name, inputFuzzySet, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 1.5f;
 
             Assert.AreEqual(0.6065306f, gaussianInput.GetMembership(crispValue), 0.0000001f);
+        }
+
+        private class TestFuzzySet : FuzzySet<InputFuzzyMember>
+        {
+            public TestFuzzySet(int category) : base(category) { }
+
+            protected override ISet<InputFuzzyMember> InitializeMembers()
+            {
+                return new HashSet<InputFuzzyMember>();
+            }
         }
     }
 }

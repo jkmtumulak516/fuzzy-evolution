@@ -5,9 +5,9 @@ namespace FuzzyLogicSystems.Core.Values.Generic
 {
     public class GaussianInput : InputFuzzyMember
     {
-        public GaussianInput(string name, int category, float peak,
+        public GaussianInput(string name, FuzzySet<InputFuzzyMember> containingSet, float peak,
             bool ceilLeft, bool ceilRight, float baseHalfWidth, float peakHalfWidth) 
-            : base(name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth) { }
+            : base(name, containingSet, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth) { }
 
         public override float GetMembership(float crispValue)
         {

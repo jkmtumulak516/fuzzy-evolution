@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
-using FuzzyLogicSystems.Core;
 
 namespace FuzzyLogicSystems.Core.Values
 {
     public abstract class FuzzySet<T> where T : IFuzzyMember
     {
         private readonly int _category;
-        private readonly HashSet<T> _members;
+        private readonly ISet<T> _members;
 
         public FuzzySet(int category)
         {
@@ -15,7 +14,7 @@ namespace FuzzyLogicSystems.Core.Values
         }
 
         public int Category { get => _category; }
-        public HashSet<T> Members { get => _members; }
+        public ISet<T> Members { get => _members; }
 
         protected abstract ISet<T> InitializeMembers();
     }
