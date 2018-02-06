@@ -32,7 +32,7 @@ namespace FuzzyLogicSystems.Core.Rules.Operators
         {
             if (operatorStack.Count == 0)
             {
-                postFix.Add(this);
+                operatorStack.Push(this);
                 return;
             }
 

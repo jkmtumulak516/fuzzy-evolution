@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FuzzyLogicSystems.Core.Rules;
 using FuzzyLogicSystems.Core.Rules.Exception;
-using static TestFuzzyLogicSystems.Core.Rules.DummyFuzzySets;
+using static TestFuzzyLogicSystems.Core.DummyFuzzySets;
 
 namespace TestFuzzyLogicSystems.Core.Rules
 {

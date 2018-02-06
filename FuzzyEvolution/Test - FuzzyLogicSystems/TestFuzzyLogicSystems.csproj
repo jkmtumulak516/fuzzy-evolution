@@ -48,8 +48,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Rules\DummyFuzzySets.cs" />
+    <Compile Include="Core\DummyFuzzySets.cs" />
     <Compile Include="Core\Rules\TestRuleBuilder.cs" />
+    <Compile Include="Core\Rules\TestRule.cs" />
     <Compile Include="Core\Values\Generic\TestGaussianInput.cs" />
     <Compile Include="Core\Values\Generic\TestLinearInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -60,6 +61,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Core\Generic\" />
     <Folder Include="IO\" />
   </ItemGroup>
   <ItemGroup>

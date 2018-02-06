@@ -2,7 +2,7 @@
 using FuzzyLogicSystems.Core.Values;
 using FuzzyLogicSystems.Core.Values.Generic;
 
-namespace TestFuzzyLogicSystems.Core.Rules
+namespace TestFuzzyLogicSystems.Core
 {
     public class DummyFuzzySets
     {

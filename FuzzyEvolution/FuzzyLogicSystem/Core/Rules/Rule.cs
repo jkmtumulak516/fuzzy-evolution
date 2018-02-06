@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using FuzzyLogicSystems.Core.Values;
 using System.Text;
+using System;
 
 namespace FuzzyLogicSystems.Core.Rules
 {
@@ -36,7 +37,7 @@ namespace FuzzyLogicSystems.Core.Rules
         {
             var operandStack = new Stack<bool>();
 
-            foreach (IRulePart part in RuleParts)
+            foreach (IRulePart part in PostFixParts)
                 part.Evaluate(fuzzifiedValues, operandStack);
 
             bool outcome = operandStack.Pop();
@@ -46,13 +47,13 @@ namespace FuzzyLogicSystems.Core.Rules
 
         internal void ToPostFix()
         {
-            var operandStack = new Stack<RuleOperator>();
+            var operatorStack = new Stack<RuleOperator>();
 
             foreach (IRulePart part in RuleParts)
-                part.ToPostFix(PostFixParts, operandStack);
+                part.ToPostFix(PostFixParts, operatorStack);
 
-            while (operandStack.Count > 0)
-                PostFixParts.Add(operandStack.Pop());
+            while (operatorStack.Count > 0)
+                PostFixParts.Add(operatorStack.Pop());
         }
 
         public override string ToString()
