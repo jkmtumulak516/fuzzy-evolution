@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using FuzzyLogicSystems.Core.Values;
+using System.Text;
 
 namespace FuzzyLogicSystems.Core.Rules
 {
@@ -8,6 +9,7 @@ namespace FuzzyLogicSystems.Core.Rules
         private readonly List<IRulePart> _rule_parts;
         private readonly List<IRulePart> _post_fix_parts;
         private readonly ResultFuzzyMember _result;
+        private readonly string _print_output;
 
         internal Rule(List<IRulePart> ruleParts, ResultFuzzyMember result)
         {
@@ -15,6 +17,13 @@ namespace FuzzyLogicSystems.Core.Rules
             _post_fix_parts = new List<IRulePart>(ruleParts.Count);
 
             _result = result;
+
+            var sb = new StringBuilder();
+
+            foreach (var rulePart in _rule_parts)
+                sb.Append(rulePart.ToString()).Append(" ");
+
+            _print_output = sb.ToString();
 
             ToPostFix();
         }
@@ -44,6 +53,11 @@ namespace FuzzyLogicSystems.Core.Rules
 
             while (operandStack.Count > 0)
                 PostFixParts.Add(operandStack.Pop());
+        }
+
+        public override string ToString()
+        {
+            return _print_output;
         }
     }
 }

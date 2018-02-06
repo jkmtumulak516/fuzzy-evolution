@@ -18,5 +18,6 @@ namespace FuzzyLogicSystems.Core.Rules
 
         public abstract void Evaluate(IDictionary<int, FuzzyValue<InputFuzzyMember>> fuzzifiedValues, Stack<bool> operandStack);
         public abstract void ToPostFix(IList<IRulePart> postFix, Stack<RuleOperator> operatorStack);
+        public abstract override string ToString();
     }
 }

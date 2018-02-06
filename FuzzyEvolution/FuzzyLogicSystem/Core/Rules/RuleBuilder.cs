@@ -14,12 +14,13 @@ namespace FuzzyLogicSystems.Core.Rules
         private readonly List<IRulePart> _ruleParts;
         private readonly HashSet<int> _categories;
 
-        private int LastAdded = 0;
+        private int LastAdded;
 
         public RuleBuilder()
         {
             _ruleParts = new List<IRulePart>();
             _categories = new HashSet<int>();
+            LastAdded = None;
         }
 
         private List<IRulePart> RuleParts { get => _ruleParts; }
@@ -27,7 +28,7 @@ namespace FuzzyLogicSystems.Core.Rules
 
         public RuleBuilder Var(IFuzzyMember fuzzyMember)
         {
-            if (LastAdded == Operator) throw new RuleSyntaxException("Cannot add Operand. Operands must be separated by an Operator.");
+            if (LastAdded == Operand) throw new RuleSyntaxException("Cannot add Operand. Operands must be separated by an Operator.");
 
             RuleParts.Add(new RuleOperand(fuzzyMember));
 
@@ -37,7 +38,7 @@ namespace FuzzyLogicSystems.Core.Rules
 
         public RuleBuilder And()
         {
-            if (LastAdded == Operand) throw new RuleSyntaxException("Cannot add Operator. Operators must be separated by an Operand.");
+            if (LastAdded == Operator) throw new RuleSyntaxException("Cannot add Operator. Operators must be separated by an Operand.");
             if (LastAdded == None) throw new RuleSyntaxException("Cannot add Operator. An Operand must be added first.");
 
             RuleParts.Add(AndOperator.Get);
@@ -48,7 +49,7 @@ namespace FuzzyLogicSystems.Core.Rules
 
         public RuleBuilder Or()
         {
-            if (LastAdded == Operand) throw new RuleSyntaxException("Cannot add Operator. Operators must be separated by an Operand.");
+            if (LastAdded == Operator) throw new RuleSyntaxException("Cannot add Operator. Operators must be separated by an Operand.");
             if (LastAdded == None) throw new RuleSyntaxException("Cannot add Operator. An Operand must be added first.");
 
             RuleParts.Add(OrOperator.Get);

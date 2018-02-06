@@ -51,5 +51,10 @@ namespace FuzzyLogicSystems.Core.Rules.Operators
 
             operatorStack.Push(this);
         }
+
+        public override string ToString()
+        {
+            return "OR";
+        }
     }
 }

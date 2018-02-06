@@ -28,5 +28,10 @@ namespace FuzzyLogicSystems.Core.Rules
         {
             postFix.Add(this);
         }
+
+        public override string ToString()
+        {
+            return _fuzzy_member.ToString();
+        }
     }
 }
