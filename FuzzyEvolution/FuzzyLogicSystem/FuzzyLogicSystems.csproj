@@ -72,8 +72,8 @@
     <Compile Include="Core\Values\Generic\LinearInput.cs" />
     <Compile Include="Core\Values\Generic\LinearResult.cs" />
     <Compile Include="Core\Values\FuzzySet.cs" />
-    <Compile Include="Core\Values\InputFuzzyMember.cs" />
-    <Compile Include="Core\Values\ResultFuzzyMember.cs" />
+    <Compile Include="Core\Values\IInputFuzzyMember.cs" />
+    <Compile Include="Core\Values\IResultFuzzyMember.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\MathUtil.cs" />
   </ItemGroup>

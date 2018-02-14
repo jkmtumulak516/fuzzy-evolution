@@ -13,7 +13,7 @@ namespace FuzzyLogicSystems.Core.Generic.RuleBase
             private readonly IDictionary<int, int> _category_order;
             private readonly int _max_depth;
 
-            public EvaluationTree(IList<FuzzySet<InputFuzzyMember>> inputFuzzySets, IEnumerable<ParentRule> rules)
+            public EvaluationTree(IList<FuzzySet<IInputFuzzyMember>> inputFuzzySets, IEnumerable<ParentRule> rules)
             {
                 //key: depth, value: category
                 _category_order = new Dictionary<int, int>();
@@ -44,7 +44,7 @@ namespace FuzzyLogicSystems.Core.Generic.RuleBase
                     Root.AddRule(subRule);
             }
 
-            public IList<ResultFuzzyMember> Evaluate(IDictionary<int, FuzzyValue<InputFuzzyMember>> fuzzifiedValues)
+            public IList<IResultFuzzyMember> Evaluate(IDictionary<int, FuzzyValue<IInputFuzzyMember>> fuzzifiedValues)
             {
                 return Root.Evaluate(fuzzifiedValues);
             }
@@ -81,7 +81,7 @@ namespace FuzzyLogicSystems.Core.Generic.RuleBase
 
             public abstract void AddRule(SubRule rule);
             // nullable
-            public abstract IList<ResultFuzzyMember> Evaluate(IDictionary<int, FuzzyValue<InputFuzzyMember>> fuzzifiedValues);
+            public abstract IList<IResultFuzzyMember> Evaluate(IDictionary<int, FuzzyValue<IInputFuzzyMember>> fuzzifiedValues);
         }
 
         private class BranchNode : EvaluationNode
@@ -106,7 +106,7 @@ namespace FuzzyLogicSystems.Core.Generic.RuleBase
             public EvaluationNode NilChild { get => _nil_child; }
             public override bool ChildrenAreLeaves { get => _children_are_leaves; }
 
-            public override IList<ResultFuzzyMember> Evaluate(IDictionary<int, FuzzyValue<InputFuzzyMember>> fuzzifiedValues)
+            public override IList<IResultFuzzyMember> Evaluate(IDictionary<int, FuzzyValue<IInputFuzzyMember>> fuzzifiedValues)
             {
                 if (fuzzifiedValues.ContainsKey(Category))
                 {
@@ -165,11 +165,11 @@ namespace FuzzyLogicSystems.Core.Generic.RuleBase
             private IList<Rule> Children { get => _children; }
             public override bool ChildrenAreLeaves { get => false; }
 
-            public override IList<ResultFuzzyMember> Evaluate(IDictionary<int, FuzzyValue<InputFuzzyMember>> fuzzifiedValues)
+            public override IList<IResultFuzzyMember> Evaluate(IDictionary<int, FuzzyValue<IInputFuzzyMember>> fuzzifiedValues)
             {
                 if (Children.Count > 0)
                 {
-                    var results = new List<ResultFuzzyMember>(Children.Count);
+                    var results = new List<IResultFuzzyMember>(Children.Count);
 
                     foreach (var child in Children)
                     {

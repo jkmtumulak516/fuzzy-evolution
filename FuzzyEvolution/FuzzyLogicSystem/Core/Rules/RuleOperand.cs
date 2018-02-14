@@ -14,7 +14,7 @@ namespace FuzzyLogicSystems.Core.Rules
 
         internal IFuzzyMember FuzzyMember { get => _fuzzy_member; }
 
-        public void Evaluate(IDictionary<int, FuzzyValue<InputFuzzyMember>> fuzzifiedValues, Stack<bool> operandStack)
+        public void Evaluate(IDictionary<int, FuzzyValue<IInputFuzzyMember>> fuzzifiedValues, Stack<bool> operandStack)
         {
             bool value = false;
 

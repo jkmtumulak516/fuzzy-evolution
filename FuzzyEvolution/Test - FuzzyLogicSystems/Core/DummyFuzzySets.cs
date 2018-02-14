@@ -6,18 +6,18 @@ namespace TestFuzzyLogicSystems.Core
 {
     public class DummyFuzzySets
     {
-        public class TestTemperature : FuzzySet<InputFuzzyMember>
+        public class TestTemperature : FuzzySet<IInputFuzzyMember>
         {
             public TestTemperature(int category) : base(category) { }
 
-            private InputFuzzyMember _hot;
-            private InputFuzzyMember _warm;
-            private InputFuzzyMember _cool;
-            private InputFuzzyMember _cold;
+            private IInputFuzzyMember _hot;
+            private IInputFuzzyMember _warm;
+            private IInputFuzzyMember _cool;
+            private IInputFuzzyMember _cold;
 
-            protected override ISet<InputFuzzyMember> InitializeMembers()
+            protected override ISet<IInputFuzzyMember> InitializeMembers()
             {
-                var set = new HashSet<InputFuzzyMember>();
+                var set = new HashSet<IInputFuzzyMember>();
 
                 // hot
                 _hot = new LinearInput("Hot", this, 35, false, true, 7.5f, 2.5f);
@@ -38,24 +38,24 @@ namespace TestFuzzyLogicSystems.Core
                 return set;
             }
 
-            public InputFuzzyMember Hot { get => _hot; }
-            public InputFuzzyMember Warm { get => _warm; }
-            public InputFuzzyMember Cool { get => _cool; }
-            public InputFuzzyMember Cold { get => _cold; }
+            public IInputFuzzyMember Hot { get => _hot; }
+            public IInputFuzzyMember Warm { get => _warm; }
+            public IInputFuzzyMember Cool { get => _cool; }
+            public IInputFuzzyMember Cold { get => _cold; }
         }
 
-        public class TestHeight : FuzzySet<InputFuzzyMember>
+        public class TestHeight : FuzzySet<IInputFuzzyMember>
         {
             public TestHeight(int category) : base(category) { }
 
-            private InputFuzzyMember _tall;
-            private InputFuzzyMember _slightly_tall;
-            private InputFuzzyMember _slightly_short;
-            private InputFuzzyMember _short;
+            private IInputFuzzyMember _tall;
+            private IInputFuzzyMember _slightly_tall;
+            private IInputFuzzyMember _slightly_short;
+            private IInputFuzzyMember _short;
 
-            protected override ISet<InputFuzzyMember> InitializeMembers()
+            protected override ISet<IInputFuzzyMember> InitializeMembers()
             {
-                var set = new HashSet<InputFuzzyMember>();
+                var set = new HashSet<IInputFuzzyMember>();
 
                 // hot
                 _tall = new LinearInput("Tall", this, 200, false, true, 15, 5);
@@ -76,24 +76,24 @@ namespace TestFuzzyLogicSystems.Core
                 return set;
             }
 
-            public InputFuzzyMember Tall { get => _tall; }
-            public InputFuzzyMember SlightlyTall { get => _slightly_tall; }
-            public InputFuzzyMember SlightlyShort { get => _slightly_short; }
-            public InputFuzzyMember Short { get => _short; }
+            public IInputFuzzyMember Tall { get => _tall; }
+            public IInputFuzzyMember SlightlyTall { get => _slightly_tall; }
+            public IInputFuzzyMember SlightlyShort { get => _slightly_short; }
+            public IInputFuzzyMember Short { get => _short; }
         }
     
-        public class TestWeight : FuzzySet<InputFuzzyMember>
+        public class TestWeight : FuzzySet<IInputFuzzyMember>
         {
             public TestWeight(int category) : base(category) { }
 
-            private InputFuzzyMember _heavy;
-            private InputFuzzyMember _slightly_heavy;
-            private InputFuzzyMember _slightly_light;
-            private InputFuzzyMember _light;
+            private IInputFuzzyMember _heavy;
+            private IInputFuzzyMember _slightly_heavy;
+            private IInputFuzzyMember _slightly_light;
+            private IInputFuzzyMember _light;
 
-            protected override ISet<InputFuzzyMember> InitializeMembers()
+            protected override ISet<IInputFuzzyMember> InitializeMembers()
             {
-                var set = new HashSet<InputFuzzyMember>();
+                var set = new HashSet<IInputFuzzyMember>();
 
                 // hot
                 _heavy = new LinearInput("Heavy", this, 200, false, true, 15, 5);
@@ -114,24 +114,24 @@ namespace TestFuzzyLogicSystems.Core
                 return set;
             }
 
-            public InputFuzzyMember Heavy { get => _heavy; }
-            public InputFuzzyMember SlightlyHeavy{ get => _slightly_heavy; }
-            public InputFuzzyMember SlightlyLight { get => _slightly_light; }
-            public InputFuzzyMember Light { get => _light; }
+            public IInputFuzzyMember Heavy { get => _heavy; }
+            public IInputFuzzyMember SlightlyHeavy{ get => _slightly_heavy; }
+            public IInputFuzzyMember SlightlyLight { get => _slightly_light; }
+            public IInputFuzzyMember Light { get => _light; }
         }
 
-        public class TestSpecial : FuzzySet<ResultFuzzyMember>
+        public class TestSpecial : FuzzySet<IResultFuzzyMember>
         {
             public TestSpecial(int category) : base(category) { }
 
-            private ResultFuzzyMember _unique;
-            private ResultFuzzyMember _original;
-            private ResultFuzzyMember _unoriginal;
-            private ResultFuzzyMember _plain;
+            private IResultFuzzyMember _unique;
+            private IResultFuzzyMember _original;
+            private IResultFuzzyMember _unoriginal;
+            private IResultFuzzyMember _plain;
 
-            protected override ISet<ResultFuzzyMember> InitializeMembers()
+            protected override ISet<IResultFuzzyMember> InitializeMembers()
             {
-                var set = new HashSet<ResultFuzzyMember>();
+                var set = new HashSet<IResultFuzzyMember>();
 
                 // hot
                 _unique = new LinearResult("Unique", this, 100, 10, 5);
@@ -152,10 +152,10 @@ namespace TestFuzzyLogicSystems.Core
                 return set;
             }
 
-            public ResultFuzzyMember Unique { get => _unique; }
-            public ResultFuzzyMember Original { get => _original; }
-            public ResultFuzzyMember Unoriginal { get => _unoriginal; }
-            public ResultFuzzyMember Plain { get => _plain; }
+            public IResultFuzzyMember Unique { get => _unique; }
+            public IResultFuzzyMember Original { get => _original; }
+            public IResultFuzzyMember Unoriginal { get => _unoriginal; }
+            public IResultFuzzyMember Plain { get => _plain; }
         }
     }
 }

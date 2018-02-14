@@ -9,7 +9,7 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
     [TestClass]
     public class TestGaussianInput
     {
-        private FuzzySet<InputFuzzyMember> inputFuzzySet = new TestFuzzySet(1);
+        private FuzzySet<IInputFuzzyMember> inputFuzzySet = new TestFuzzySet(1);
 
         [TestMethod]
         public void GaussianInputOrdinaryCrispValueAtPeak()
@@ -147,13 +147,13 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
             Assert.AreEqual(0.6065306f, gaussianInput.GetMembership(crispValue), 0.0000001f);
         }
 
-        private class TestFuzzySet : FuzzySet<InputFuzzyMember>
+        private class TestFuzzySet : FuzzySet<IInputFuzzyMember>
         {
             public TestFuzzySet(int category) : base(category) { }
 
-            protected override ISet<InputFuzzyMember> InitializeMembers()
+            protected override ISet<IInputFuzzyMember> InitializeMembers()
             {
-                return new HashSet<InputFuzzyMember>();
+                return new HashSet<IInputFuzzyMember>();
             }
         }
     }

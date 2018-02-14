@@ -9,7 +9,7 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
     [TestClass]
     public class TestLinearResult
     {
-        private readonly FuzzySet<ResultFuzzyMember> outputFuzzySet = new TestFuzzySet(1);
+        private readonly FuzzySet<IResultFuzzyMember> outputFuzzySet = new TestFuzzySet(1);
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
@@ -103,13 +103,13 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
             Assert.AreEqual(8.75f, linearResult.GetArea(degree));
         }
 
-        private class TestFuzzySet : FuzzySet<ResultFuzzyMember>
+        private class TestFuzzySet : FuzzySet<IResultFuzzyMember>
         {
             public TestFuzzySet(int category) : base(category) { }
 
-            protected override ISet<ResultFuzzyMember> InitializeMembers()
+            protected override ISet<IResultFuzzyMember> InitializeMembers()
             {
-                return new HashSet<ResultFuzzyMember>();
+                return new HashSet<IResultFuzzyMember>();
             }
         }
     }

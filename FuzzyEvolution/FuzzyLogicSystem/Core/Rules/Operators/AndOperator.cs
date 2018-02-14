@@ -20,7 +20,7 @@ namespace FuzzyLogicSystems.Core.Rules.Operators
             }
         }
 
-        public override void Evaluate(IDictionary<int, FuzzyValue<InputFuzzyMember>> fuzzifiedValues, Stack<bool> operandStack)
+        public override void Evaluate(IDictionary<int, FuzzyValue<IInputFuzzyMember>> fuzzifiedValues, Stack<bool> operandStack)
         {
             bool var1 = operandStack.Pop();
             bool var2 = operandStack.Pop();

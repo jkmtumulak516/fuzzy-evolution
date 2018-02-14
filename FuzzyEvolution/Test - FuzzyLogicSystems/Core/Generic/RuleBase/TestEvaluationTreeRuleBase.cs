@@ -18,7 +18,7 @@ namespace TestFuzzyLogicSystems.Core.Generic.RuleBase
         [TestMethod]
         public void EvaluationTreeRuleBaseConstructor()
         {
-            var inputSets = new List<FuzzySet<InputFuzzyMember>>() { temperature, height };
+            var inputSets = new List<FuzzySet<IInputFuzzyMember>>() { temperature, height };
             var rules = CreateRules();
 
             try
@@ -34,15 +34,15 @@ namespace TestFuzzyLogicSystems.Core.Generic.RuleBase
         [TestMethod]
         public void EvaluationTreeRuleBaseEvaluateSingleCombinations1()
         {
-            var inputSets = new List<FuzzySet<InputFuzzyMember>>() { temperature, height };
+            var inputSets = new List<FuzzySet<IInputFuzzyMember>>() { temperature, height };
             var rules = CreateRules();
 
             var ruleBase = new EvaluationTreeRuleBase(inputSets, special, rules);
 
-            var input = new Dictionary<int, IList<FuzzyValue<InputFuzzyMember>>>
+            var input = new Dictionary<int, IList<FuzzyValue<IInputFuzzyMember>>>
             {
-                { temperature.Category, new List<FuzzyValue<InputFuzzyMember>> { new FuzzyValue<InputFuzzyMember>(0.7f, temperature.Hot)} },
-                { height.Category, new List<FuzzyValue<InputFuzzyMember>> { new FuzzyValue<InputFuzzyMember>(0.9f, height.Tall)} }
+                { temperature.Category, new List<FuzzyValue<IInputFuzzyMember>> { new FuzzyValue<IInputFuzzyMember>(0.7f, temperature.Hot)} },
+                { height.Category, new List<FuzzyValue<IInputFuzzyMember>> { new FuzzyValue<IInputFuzzyMember>(0.9f, height.Tall)} }
             };
 
             try
@@ -62,15 +62,15 @@ namespace TestFuzzyLogicSystems.Core.Generic.RuleBase
         [TestMethod]
         public void EvaluationTreeRuleBaseEvaluateSingleCombinations2()
         {
-            var inputSets = new List<FuzzySet<InputFuzzyMember>>() { temperature, height };
+            var inputSets = new List<FuzzySet<IInputFuzzyMember>>() { temperature, height };
             var rules = CreateRules();
 
             var ruleBase = new EvaluationTreeRuleBase(inputSets, special, rules);
 
-            var input = new Dictionary<int, IList<FuzzyValue<InputFuzzyMember>>>
+            var input = new Dictionary<int, IList<FuzzyValue<IInputFuzzyMember>>>
             {
-                { temperature.Category, new List<FuzzyValue<InputFuzzyMember>> { new FuzzyValue<InputFuzzyMember>(0.5f, temperature.Cool)} },
-                { height.Category, new List<FuzzyValue<InputFuzzyMember>> { new FuzzyValue<InputFuzzyMember>(0.3f, height.Tall)} }
+                { temperature.Category, new List<FuzzyValue<IInputFuzzyMember>> { new FuzzyValue<IInputFuzzyMember>(0.5f, temperature.Cool)} },
+                { height.Category, new List<FuzzyValue<IInputFuzzyMember>> { new FuzzyValue<IInputFuzzyMember>(0.3f, height.Tall)} }
             };
 
             try
@@ -90,15 +90,15 @@ namespace TestFuzzyLogicSystems.Core.Generic.RuleBase
         [TestMethod]
         public void EvaluationTreeRuleBaseEvaluateSingleCombinations3()
         {
-            var inputSets = new List<FuzzySet<InputFuzzyMember>>() { temperature, height };
+            var inputSets = new List<FuzzySet<IInputFuzzyMember>>() { temperature, height };
             var rules = CreateRules();
 
             var ruleBase = new EvaluationTreeRuleBase(inputSets, special, rules);
 
-            var input = new Dictionary<int, IList<FuzzyValue<InputFuzzyMember>>>
+            var input = new Dictionary<int, IList<FuzzyValue<IInputFuzzyMember>>>
             {
-                { temperature.Category, new List<FuzzyValue<InputFuzzyMember>> { new FuzzyValue<InputFuzzyMember>(0.4f, temperature.Cold)} },
-                { height.Category, new List<FuzzyValue<InputFuzzyMember>> { new FuzzyValue<InputFuzzyMember>(0.4f, height.SlightlyTall)} }
+                { temperature.Category, new List<FuzzyValue<IInputFuzzyMember>> { new FuzzyValue<IInputFuzzyMember>(0.4f, temperature.Cold)} },
+                { height.Category, new List<FuzzyValue<IInputFuzzyMember>> { new FuzzyValue<IInputFuzzyMember>(0.4f, height.SlightlyTall)} }
             };
 
             try
@@ -118,15 +118,15 @@ namespace TestFuzzyLogicSystems.Core.Generic.RuleBase
         [TestMethod]
         public void EvaluationTreeRuleBaseEvaluateSingleCombinations4()
         {
-            var inputSets = new List<FuzzySet<InputFuzzyMember>>() { temperature, height };
+            var inputSets = new List<FuzzySet<IInputFuzzyMember>>() { temperature, height };
             var rules = CreateRules();
 
             var ruleBase = new EvaluationTreeRuleBase(inputSets, special, rules);
 
-            var input = new Dictionary<int, IList<FuzzyValue<InputFuzzyMember>>>
+            var input = new Dictionary<int, IList<FuzzyValue<IInputFuzzyMember>>>
             {
-                { temperature.Category, new List<FuzzyValue<InputFuzzyMember>> { new FuzzyValue<InputFuzzyMember>(0.7f, temperature.Warm)} },
-                { height.Category, new List<FuzzyValue<InputFuzzyMember>> { new FuzzyValue<InputFuzzyMember>(0.3f, height.SlightlyShort)} }
+                { temperature.Category, new List<FuzzyValue<IInputFuzzyMember>> { new FuzzyValue<IInputFuzzyMember>(0.7f, temperature.Warm)} },
+                { height.Category, new List<FuzzyValue<IInputFuzzyMember>> { new FuzzyValue<IInputFuzzyMember>(0.3f, height.SlightlyShort)} }
             };
 
             try
@@ -146,20 +146,20 @@ namespace TestFuzzyLogicSystems.Core.Generic.RuleBase
         [TestMethod]
         public void EvaluationTreeRuleBaseEvaluateDoubleCombinations()
         {
-            var inputSets = new List<FuzzySet<InputFuzzyMember>>() { temperature, height };
+            var inputSets = new List<FuzzySet<IInputFuzzyMember>>() { temperature, height };
             var rules = CreateRules();
 
             var ruleBase = new EvaluationTreeRuleBase(inputSets, special, rules);
 
-            var input = new Dictionary<int, IList<FuzzyValue<InputFuzzyMember>>>
+            var input = new Dictionary<int, IList<FuzzyValue<IInputFuzzyMember>>>
             {
-                { temperature.Category, new List<FuzzyValue<InputFuzzyMember>>
-                    { new FuzzyValue<InputFuzzyMember>(0.4f, temperature.Cold),
-                    new FuzzyValue<InputFuzzyMember>(0.4f, temperature.Warm) }
+                { temperature.Category, new List<FuzzyValue<IInputFuzzyMember>>
+                    { new FuzzyValue<IInputFuzzyMember>(0.4f, temperature.Cold),
+                    new FuzzyValue<IInputFuzzyMember>(0.4f, temperature.Warm) }
                 },
-                { height.Category, new List<FuzzyValue<InputFuzzyMember>>
-                    { new FuzzyValue<InputFuzzyMember>(0.4f, height.SlightlyTall),
-                    new FuzzyValue<InputFuzzyMember>(0.4f, height.Short) }
+                { height.Category, new List<FuzzyValue<IInputFuzzyMember>>
+                    { new FuzzyValue<IInputFuzzyMember>(0.4f, height.SlightlyTall),
+                    new FuzzyValue<IInputFuzzyMember>(0.4f, height.Short) }
                 }
             };
 

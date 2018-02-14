@@ -19,11 +19,11 @@ namespace TestFuzzyLogicSystems.Core
         //private readonly TestWeight weight = new TestWeight(3);
         private readonly TestSpecial special = new TestSpecial(4);
 
-        private readonly List<FuzzySet<InputFuzzyMember>> inputSets;
+        private readonly List<FuzzySet<IInputFuzzyMember>> inputSets;
 
         public TestFuzzyLogicSystem()
         {
-            inputSets = new List<FuzzySet<InputFuzzyMember>> { temperature, height };
+            inputSets = new List<FuzzySet<IInputFuzzyMember>> { temperature, height };
         }
 
         [TestMethod]
