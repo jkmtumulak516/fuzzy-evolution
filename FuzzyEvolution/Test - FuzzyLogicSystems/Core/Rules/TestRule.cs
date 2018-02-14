@@ -26,10 +26,10 @@ namespace TestFuzzyLogicSystems.Core.Rules
                 .Var(height.Tall)
                 .Build(special.Unique);
 
-            var input = new Dictionary<int, FuzzyValue<InputFuzzyMember>>
+            var input = new Dictionary<int, FuzzyValue<IInputFuzzyMember>>
             {
-                { temperature.Category, new FuzzyValue<InputFuzzyMember>(.7f, temperature.Hot)},
-                { height.Category, new FuzzyValue<InputFuzzyMember>(.7f, height.Tall)}
+                { temperature.Category, new FuzzyValue<IInputFuzzyMember>(.7f, temperature.Hot)},
+                { height.Category, new FuzzyValue<IInputFuzzyMember>(.7f, height.Tall)}
             };
 
             Assert.IsTrue(rule.Evaluate(input));
@@ -47,10 +47,10 @@ namespace TestFuzzyLogicSystems.Core.Rules
                 .Var(height.Tall)
                 .Build(special.Unique);
 
-            var input = new Dictionary<int, FuzzyValue<InputFuzzyMember>>
+            var input = new Dictionary<int, FuzzyValue<IInputFuzzyMember>>
             {
-                { temperature.Category, new FuzzyValue<InputFuzzyMember>(.7f, temperature.Hot)},
-                { height.Category, new FuzzyValue<InputFuzzyMember>(.7f, height.Short)}
+                { temperature.Category, new FuzzyValue<IInputFuzzyMember>(.7f, temperature.Hot)},
+                { height.Category, new FuzzyValue<IInputFuzzyMember>(.7f, height.Short)}
             };
 
             Assert.IsFalse(rule.Evaluate(input));
@@ -68,10 +68,10 @@ namespace TestFuzzyLogicSystems.Core.Rules
                 .Var(height.Tall)
                 .Build(special.Unique);
 
-            var input = new Dictionary<int, FuzzyValue<InputFuzzyMember>>
+            var input = new Dictionary<int, FuzzyValue<IInputFuzzyMember>>
             {
-                { temperature.Category, new FuzzyValue<InputFuzzyMember>(.7f, temperature.Hot)},
-                { height.Category, new FuzzyValue<InputFuzzyMember>(.7f, height.Short)}
+                { temperature.Category, new FuzzyValue<IInputFuzzyMember>(.7f, temperature.Hot)},
+                { height.Category, new FuzzyValue<IInputFuzzyMember>(.7f, height.Short)}
             };
 
             Assert.IsTrue(rule.Evaluate(input));
@@ -89,10 +89,10 @@ namespace TestFuzzyLogicSystems.Core.Rules
                 .Var(height.Tall)
                 .Build(special.Unique);
 
-            var input = new Dictionary<int, FuzzyValue<InputFuzzyMember>>
+            var input = new Dictionary<int, FuzzyValue<IInputFuzzyMember>>
             {
-                { temperature.Category, new FuzzyValue<InputFuzzyMember>(.7f, temperature.Cold)},
-                { height.Category, new FuzzyValue<InputFuzzyMember>(.7f, height.Short)}
+                { temperature.Category, new FuzzyValue<IInputFuzzyMember>(.7f, temperature.Cold)},
+                { height.Category, new FuzzyValue<IInputFuzzyMember>(.7f, height.Short)}
             };
 
             Assert.IsFalse(rule.Evaluate(input));
@@ -114,10 +114,10 @@ namespace TestFuzzyLogicSystems.Core.Rules
                 .Var(height.Short)
                 .Build(special.Unique);
 
-            var input = new Dictionary<int, FuzzyValue<InputFuzzyMember>>
+            var input = new Dictionary<int, FuzzyValue<IInputFuzzyMember>>
             {
-                { temperature.Category, new FuzzyValue<InputFuzzyMember>(.7f, temperature.Hot)},
-                { height.Category, new FuzzyValue<InputFuzzyMember>(.7f, height.Tall)}
+                { temperature.Category, new FuzzyValue<IInputFuzzyMember>(.7f, temperature.Hot)},
+                { height.Category, new FuzzyValue<IInputFuzzyMember>(.7f, height.Tall)}
             };
 
             Assert.IsTrue(rule.Evaluate(input));
@@ -139,10 +139,10 @@ namespace TestFuzzyLogicSystems.Core.Rules
                 .Var(height.Short)
                 .Build(special.Unique);
 
-            var input = new Dictionary<int, FuzzyValue<InputFuzzyMember>>
+            var input = new Dictionary<int, FuzzyValue<IInputFuzzyMember>>
             {
-                { temperature.Category, new FuzzyValue<InputFuzzyMember>(.7f, temperature.Cold)},
-                { height.Category, new FuzzyValue<InputFuzzyMember>(.7f, height.Short)}
+                { temperature.Category, new FuzzyValue<IInputFuzzyMember>(.7f, temperature.Cold)},
+                { height.Category, new FuzzyValue<IInputFuzzyMember>(.7f, height.Short)}
             };
 
             Assert.IsTrue(rule.Evaluate(input));
@@ -168,10 +168,10 @@ namespace TestFuzzyLogicSystems.Core.Rules
                 .Var(height.Short)
                 .Build(special.Unique);
 
-            var input = new Dictionary<int, FuzzyValue<InputFuzzyMember>>
+            var input = new Dictionary<int, FuzzyValue<IInputFuzzyMember>>
             {
-                { temperature.Category, new FuzzyValue<InputFuzzyMember>(.7f, temperature.Hot)},
-                { height.Category, new FuzzyValue<InputFuzzyMember>(.7f, height.SlightlyShort)}
+                { temperature.Category, new FuzzyValue<IInputFuzzyMember>(.7f, temperature.Hot)},
+                { height.Category, new FuzzyValue<IInputFuzzyMember>(.7f, height.SlightlyShort)}
             };
 
             Assert.IsTrue(rule.Evaluate(input));
@@ -197,10 +197,10 @@ namespace TestFuzzyLogicSystems.Core.Rules
                 .Var(height.Short)
                 .Build(special.Unique);
 
-            var input = new Dictionary<int, FuzzyValue<InputFuzzyMember>>
+            var input = new Dictionary<int, FuzzyValue<IInputFuzzyMember>>
             {
-                { temperature.Category, new FuzzyValue<InputFuzzyMember>(.7f, temperature.Warm)},
-                { height.Category, new FuzzyValue<InputFuzzyMember>(.7f, height.Short)}
+                { temperature.Category, new FuzzyValue<IInputFuzzyMember>(.7f, temperature.Warm)},
+                { height.Category, new FuzzyValue<IInputFuzzyMember>(.7f, height.Short)}
             };
 
             Assert.IsTrue(rule.Evaluate(input));
@@ -222,10 +222,10 @@ namespace TestFuzzyLogicSystems.Core.Rules
                 .Var(height.Short)
                 .Build(special.Unique);
 
-            var input = new Dictionary<int, FuzzyValue<InputFuzzyMember>>
+            var input = new Dictionary<int, FuzzyValue<IInputFuzzyMember>>
             {
-                { temperature.Category, new FuzzyValue<InputFuzzyMember>(.7f, temperature.Hot)},
-                { height.Category, new FuzzyValue<InputFuzzyMember>(.7f, height.Short)}
+                { temperature.Category, new FuzzyValue<IInputFuzzyMember>(.7f, temperature.Hot)},
+                { height.Category, new FuzzyValue<IInputFuzzyMember>(.7f, height.Short)}
             };
 
             Assert.IsFalse(rule.Evaluate(input));
@@ -247,10 +247,10 @@ namespace TestFuzzyLogicSystems.Core.Rules
                 .Var(height.Short)
                 .Build(special.Unique);
 
-            var input = new Dictionary<int, FuzzyValue<InputFuzzyMember>>
+            var input = new Dictionary<int, FuzzyValue<IInputFuzzyMember>>
             {
-                { temperature.Category, new FuzzyValue<InputFuzzyMember>(.7f, temperature.Cold)},
-                { height.Category, new FuzzyValue<InputFuzzyMember>(.7f, height.Tall)}
+                { temperature.Category, new FuzzyValue<IInputFuzzyMember>(.7f, temperature.Cold)},
+                { height.Category, new FuzzyValue<IInputFuzzyMember>(.7f, height.Tall)}
             };
 
             Assert.IsFalse(rule.Evaluate(input));
@@ -276,10 +276,10 @@ namespace TestFuzzyLogicSystems.Core.Rules
                 .Var(height.Short)
                 .Build(special.Unique);
 
-            var input = new Dictionary<int, FuzzyValue<InputFuzzyMember>>
+            var input = new Dictionary<int, FuzzyValue<IInputFuzzyMember>>
             {
-                { temperature.Category, new FuzzyValue<InputFuzzyMember>(.7f, temperature.Warm)},
-                { height.Category, new FuzzyValue<InputFuzzyMember>(.7f, height.SlightlyShort)}
+                { temperature.Category, new FuzzyValue<IInputFuzzyMember>(.7f, temperature.Warm)},
+                { height.Category, new FuzzyValue<IInputFuzzyMember>(.7f, height.SlightlyShort)}
             };
 
             Assert.IsFalse(rule.Evaluate(input));
@@ -305,10 +305,10 @@ namespace TestFuzzyLogicSystems.Core.Rules
                 .Var(height.Short)
                 .Build(special.Unique);
 
-            var input = new Dictionary<int, FuzzyValue<InputFuzzyMember>>
+            var input = new Dictionary<int, FuzzyValue<IInputFuzzyMember>>
             {
-                { temperature.Category, new FuzzyValue<InputFuzzyMember>(.7f, temperature.Hot)},
-                { height.Category, new FuzzyValue<InputFuzzyMember>(.7f, height.Tall)}
+                { temperature.Category, new FuzzyValue<IInputFuzzyMember>(.7f, temperature.Hot)},
+                { height.Category, new FuzzyValue<IInputFuzzyMember>(.7f, height.Tall)}
             };
 
             Assert.IsFalse(rule.Evaluate(input));
@@ -358,10 +358,10 @@ namespace TestFuzzyLogicSystems.Core.Rules
 
             var subRule = rule.SubRules()[0];
 
-            var input = new Dictionary<int, FuzzyValue<InputFuzzyMember>>
+            var input = new Dictionary<int, FuzzyValue<IInputFuzzyMember>>
             {
-                { temperature.Category, new FuzzyValue<InputFuzzyMember>(.7f, temperature.Hot)},
-                { height.Category, new FuzzyValue<InputFuzzyMember>(.7f, height.Tall)}
+                { temperature.Category, new FuzzyValue<IInputFuzzyMember>(.7f, temperature.Hot)},
+                { height.Category, new FuzzyValue<IInputFuzzyMember>(.7f, height.Tall)}
             };
 
             Assert.IsTrue(subRule.Evaluate(input));

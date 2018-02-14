@@ -9,10 +9,10 @@ namespace FuzzyLogicSystems.Core.Rules
     {
         private readonly List<IRulePart> _rule_parts;
         private readonly List<IRulePart> _post_fix_parts;
-        private readonly ResultFuzzyMember _result;
+        private readonly IResultFuzzyMember _result;
         private readonly string _print_output;
 
-        internal Rule(List<IRulePart> ruleParts, ResultFuzzyMember result)
+        internal Rule(List<IRulePart> ruleParts, IResultFuzzyMember result)
         {
             _rule_parts = ruleParts;
             _post_fix_parts = new List<IRulePart>(ruleParts.Count);
@@ -31,9 +31,9 @@ namespace FuzzyLogicSystems.Core.Rules
 
         internal List<IRulePart> RuleParts { get => _rule_parts; }
         internal List<IRulePart> PostFixParts { get => _post_fix_parts; }
-        public ResultFuzzyMember Result { get => _result; }
+        public IResultFuzzyMember Result { get => _result; }
 
-        public bool Evaluate(IDictionary<int, FuzzyValue<InputFuzzyMember>> fuzzifiedValues)
+        public bool Evaluate(IDictionary<int, FuzzyValue<IInputFuzzyMember>> fuzzifiedValues)
         {
             var operandStack = new Stack<bool>();
 

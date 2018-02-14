@@ -8,7 +8,7 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
     [TestClass]
     public class TestLinearInput
     {
-        private FuzzySet<InputFuzzyMember> inputFuzzySet = new TestFuzzySet(1);
+        private FuzzySet<IInputFuzzyMember> inputFuzzySet = new TestFuzzySet(1);
 
         [TestMethod]
         public void LinearInputOrdinaryCrispValueAtPeak()
@@ -129,13 +129,13 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
             Assert.AreEqual(0.5f, linearInput.GetMembership(crispValue));
         }
 
-        private class TestFuzzySet : FuzzySet<InputFuzzyMember>
+        private class TestFuzzySet : FuzzySet<IInputFuzzyMember>
         {
             public TestFuzzySet(int category) : base(category) { }
 
-            protected override ISet<InputFuzzyMember> InitializeMembers()
+            protected override ISet<IInputFuzzyMember> InitializeMembers()
             {
-                return new HashSet<InputFuzzyMember>();
+                return new HashSet<IInputFuzzyMember>();
             }
         }
     }

@@ -5,7 +5,7 @@ namespace FuzzyLogicSystems.Core.Generic.Defuzzifier
 {
     public class CenterOfSumsDefuzzifier : IDefuzzifier
     {
-        public float Defuzzify(IList<FuzzyValue<ResultFuzzyMember>> results)
+        public float Defuzzify(IList<FuzzyValue<IResultFuzzyMember>> results)
         {
             float weightedAreaSum = 0.0f;
             float areaSum = 0.0f;

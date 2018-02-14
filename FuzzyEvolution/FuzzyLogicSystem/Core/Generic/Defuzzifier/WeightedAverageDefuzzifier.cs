@@ -5,7 +5,7 @@ namespace FuzzyLogicSystems.Core.Generic.Defuzzifier
 {
     public class WeightedAverageDefuzzifier : IDefuzzifier
     {
-        public float Defuzzify(IList<FuzzyValue<ResultFuzzyMember>> results)
+        public float Defuzzify(IList<FuzzyValue<IResultFuzzyMember>> results)
         {
             float sum = 0.0f;
 

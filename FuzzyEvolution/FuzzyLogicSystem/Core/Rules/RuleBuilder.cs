@@ -58,7 +58,7 @@ namespace FuzzyLogicSystems.Core.Rules
             return this;
         }
 
-        public ParentRule Build(ResultFuzzyMember result)
+        public ParentRule Build(IResultFuzzyMember result)
         {
             if (LastAdded == Operator) throw new RuleSyntaxException("Cannot build Rule. Rules cannot end with operators.");
             if (LastAdded == None) throw new RuleSyntaxException("Cannot build Rule. Rules is empty.");

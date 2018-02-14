@@ -5,6 +5,6 @@ namespace FuzzyLogicSystems.Core
 {
     public interface IDefuzzifier
     {
-        float Defuzzify(IList<FuzzyValue<ResultFuzzyMember>> results);
+        float Defuzzify(IList<FuzzyValue<IResultFuzzyMember>> results);
     }
 }

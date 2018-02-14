@@ -5,7 +5,7 @@ namespace FuzzyLogicSystems.Core.Rules
 {
     public class ParentRule : Rule
     {
-        internal ParentRule(List<IRulePart> ruleParts, ResultFuzzyMember result) 
+        internal ParentRule(List<IRulePart> ruleParts, IResultFuzzyMember result) 
             : base(ruleParts, result) { }
 
         public List<SubRule> SubRules()

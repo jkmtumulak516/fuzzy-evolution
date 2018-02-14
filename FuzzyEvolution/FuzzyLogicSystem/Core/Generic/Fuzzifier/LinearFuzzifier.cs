@@ -7,19 +7,19 @@ namespace FuzzyLogicSystems.Core.Generic.Fuzzifier
 {
     public class LinearFuzzifier : IFuzzifier
     {
-        public IDictionary<int, IList<FuzzyValue<InputFuzzyMember>>> Fuzzify(IDictionary<int, float> crispValues, IDictionary<int, FuzzySet<InputFuzzyMember>> fuzzySets)
+        public IDictionary<int, IList<FuzzyValue<IInputFuzzyMember>>> Fuzzify(IDictionary<int, float> crispValues, IDictionary<int, FuzzySet<IInputFuzzyMember>> fuzzySets)
         {
-            var fuzzifiedValues = new Dictionary<int, IList<FuzzyValue<InputFuzzyMember>>>();
+            var fuzzifiedValues = new Dictionary<int, IList<FuzzyValue<IInputFuzzyMember>>>();
 
             foreach (var crispValue in crispValues)
             {
                 var fuzzySet = fuzzySets[crispValue.Key];
-                var currentValues = new List<FuzzyValue<InputFuzzyMember>>();
+                var currentValues = new List<FuzzyValue<IInputFuzzyMember>>();
 
                 foreach (var fuzzyMember in fuzzySet.Members)
                 {
                     if (fuzzyMember.Contains(crispValue.Value))
-                        currentValues.Add(new FuzzyValue<InputFuzzyMember>
+                        currentValues.Add(new FuzzyValue<IInputFuzzyMember>
                             (Membership(fuzzyMember, crispValue.Value), fuzzyMember));
                 }
 
@@ -29,7 +29,7 @@ namespace FuzzyLogicSystems.Core.Generic.Fuzzifier
             return fuzzifiedValues;
         }
 
-        private float Membership(InputFuzzyMember fuzzyMember, float crispValue)
+        private float Membership(IInputFuzzyMember fuzzyMember, float crispValue)
         {
             float diffInCenterAndValue = Math.Abs(fuzzyMember.Peak - crispValue);
 
