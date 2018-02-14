@@ -7,9 +7,9 @@ namespace FuzzyLogicSystems.Core.Values
         private readonly bool _ceil_left;
         private readonly bool _ceil_right;
 
-        public InputFuzzyMember(string name, int category, float peak,
+        public InputFuzzyMember(string name, FuzzySet<InputFuzzyMember> containingSet, float peak,
             bool ceilLeft, bool ceilRight, float baseHalfWidth, float peakHalfWidth = 0.0f) 
-            : base(name, category, peak, baseHalfWidth, peakHalfWidth)
+            : base(name, containingSet.Category, peak, baseHalfWidth, peakHalfWidth)
         {
             _ceil_left = ceilLeft;
             _ceil_right = ceilRight;

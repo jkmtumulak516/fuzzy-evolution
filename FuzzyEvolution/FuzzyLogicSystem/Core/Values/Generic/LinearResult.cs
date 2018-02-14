@@ -5,9 +5,9 @@ namespace FuzzyLogicSystems.Core.Values.Generic
 {
     public class LinearResult : ResultFuzzyMember
     {
-        public LinearResult(string name, int category, float center,
-            float coverage, float upperCoverage = 0.0f) 
-            : base(name, category, center, coverage, upperCoverage) { }
+        public LinearResult(string name, FuzzySet<ResultFuzzyMember> containingSet, float peak,
+            float baseHalfWidth, float peakHalfWidth = 0.0f) 
+            : base(name, containingSet, peak, baseHalfWidth, peakHalfWidth) { }
 
         // degree is assumed to be a value between 0 and 1 representing a percentage
         public override float GetArea(float degree)

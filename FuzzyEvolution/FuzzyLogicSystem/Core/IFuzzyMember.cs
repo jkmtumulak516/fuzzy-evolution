@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FuzzyLogicSystems.Core.Values;
 
 namespace FuzzyLogicSystems.Core
 {
@@ -13,5 +14,7 @@ namespace FuzzyLogicSystems.Core
         float Peak { get; }
         float BaseHalfWidth { get; }
         float PeakHalfWidth { get; }
+
+        bool Contains(float degree);
     }
 }

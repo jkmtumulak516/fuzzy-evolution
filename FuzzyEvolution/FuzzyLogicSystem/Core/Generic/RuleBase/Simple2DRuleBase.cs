@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FuzzyLogicSystems.Core.Generic.RuleBase
 {
-    class Simple2DRuleBase : IFuzzyRuleBase
-    {
-    }
+    //class Simple2DRuleBase : IFuzzyRuleBase
+    //{
+    //}
 }

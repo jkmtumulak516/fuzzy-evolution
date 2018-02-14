@@ -3,8 +3,11 @@ using FuzzyLogicSystems.Core.Values;
 
 namespace FuzzyLogicSystems.Core
 {
-    interface IFuzzyRuleBase
+    public interface IFuzzyRuleBase
     {
-        List<FuzzyValue<ResultFuzzyMember>> Evaluate(IDictionary<int, IList<FuzzyValue<InputFuzzyMember>>> fuzzyValues);
+        IDictionary<int, FuzzySet<InputFuzzyMember>> InputFuzzySets { get;}
+        FuzzySet<ResultFuzzyMember> ResultFuzzySet { get; }
+
+        IList<FuzzyValue<ResultFuzzyMember>> Evaluate(IDictionary<int, IList<FuzzyValue<InputFuzzyMember>>> fuzzyValues);
     }
 }

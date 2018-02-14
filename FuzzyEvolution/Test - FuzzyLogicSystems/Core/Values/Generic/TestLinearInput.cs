@@ -1,16 +1,19 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FuzzyLogicSystems.Core.Values.Generic;
+using FuzzyLogicSystems.Core.Values;
+using System.Collections.Generic;
 
 namespace TestFuzzyLogicSystems.Core.Values.Generic
 {
     [TestClass]
     public class TestLinearInput
     {
+        private FuzzySet<InputFuzzyMember> inputFuzzySet = new TestFuzzySet(1);
+
         [TestMethod]
         public void LinearInputOrdinaryCrispValueAtPeak()
         {
             string name = "test";
-            int category = 1;
             float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = false;
@@ -18,7 +21,7 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
             float peakHalfWidth = 0.0f;
 
             var linearInput = new LinearInput
-                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
+                (name, inputFuzzySet, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 0.0f;
 
             Assert.AreEqual(1.0f, linearInput.GetMembership(crispValue));
@@ -28,7 +31,6 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         public void LinearInputOrdinaryCrispValueBetweenPeakAndEdgeOfBase()
         {
             string name = "test";
-            int category = 1;
             float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = false;
@@ -36,7 +38,7 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
             float peakHalfWidth = 0.0f;
 
             var linearInput = new LinearInput
-                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
+                (name, inputFuzzySet, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 0.5f;
 
             Assert.AreEqual(0.5f, linearInput.GetMembership(crispValue));
@@ -46,7 +48,6 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         public void LinearInputOrdinaryCrispValueAtEdgeOfBase()
         {
             string name = "test";
-            int category = 1;
             float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = false;
@@ -54,7 +55,7 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
             float peakHalfWidth = 0.0f;
 
             var linearInput = new LinearInput
-                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
+                (name, inputFuzzySet, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 1.0f;
 
             Assert.AreEqual(0.0f, linearInput.GetMembership(crispValue));
@@ -64,7 +65,6 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         public void LinearInputCeilLeftCrispValueWithinCeil()
         {
             string name = "test";
-            int category = 1;
             float peak = 0.0f;
             bool ceilLeft = true;
             bool ceilRight = false;
@@ -72,7 +72,7 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
             float peakHalfWidth = 0.0f;
 
             var linearInput = new LinearInput
-                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
+                (name, inputFuzzySet, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = -0.5f;
 
             Assert.AreEqual(1.0f, linearInput.GetMembership(crispValue));
@@ -82,7 +82,6 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         public void LinearInputCeilRightCrispValueWithinCeil()
         {
             string name = "test";
-            int category = 1;
             float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = true;
@@ -90,7 +89,7 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
             float peakHalfWidth = 0.0f;
 
             var linearInput = new LinearInput
-                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
+                (name, inputFuzzySet, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 0.5f;
 
             Assert.AreEqual(1.0f, linearInput.GetMembership(crispValue));
@@ -100,7 +99,6 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         public void LinearInputPeakWidthCrispValueWithinWidthOfPeak()
         {
             string name = "test";
-            int category = 1;
             float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = false;
@@ -108,7 +106,7 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
             float peakHalfWidth = 1.0f;
 
             var linearInput = new LinearInput
-                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
+                (name, inputFuzzySet, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 0.5f;
 
             Assert.AreEqual(1.0f, linearInput.GetMembership(crispValue));
@@ -118,7 +116,6 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         public void LinearInputPeakWidthCrispValueBetweenEdgeOfPeakAndEdgeOfBase()
         {
             string name = "test";
-            int category = 1;
             float peak = 0.0f;
             bool ceilLeft = false;
             bool ceilRight = false;
@@ -126,10 +123,20 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
             float peakHalfWidth = 1.0f;
 
             var linearInput = new LinearInput
-                (name, category, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
+                (name, inputFuzzySet, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
             float crispValue = 1.5f;
 
             Assert.AreEqual(0.5f, linearInput.GetMembership(crispValue));
+        }
+
+        private class TestFuzzySet : FuzzySet<InputFuzzyMember>
+        {
+            public TestFuzzySet(int category) : base(category) { }
+
+            protected override ISet<InputFuzzyMember> InitializeMembers()
+            {
+                return new HashSet<InputFuzzyMember>();
+            }
         }
     }
 }

@@ -1,29 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using FuzzyLogicSystems.Core.Values;
 
 namespace FuzzyLogicSystems.Core.Rules
 {
     internal class RuleOperand : IRulePart
     {
-        private readonly int _category;
-        private readonly string _name;
+        private readonly IFuzzyMember _fuzzy_member;
 
-        internal RuleOperand(int category, string name)
+        internal RuleOperand(IFuzzyMember fuzzyMember)
         {
-            _category = category;
-            _name = name;
+            _fuzzy_member = fuzzyMember;
         }
 
-        internal int Category { get => _category; }
-        internal string Name { get => _name; }
+        internal IFuzzyMember FuzzyMember { get => _fuzzy_member; }
 
-        public void Evaluate(IDictionary<int, string> fuzzifiedValues, Stack<bool> operandStack)
+        public void Evaluate(IDictionary<int, FuzzyValue<InputFuzzyMember>> fuzzifiedValues, Stack<bool> operandStack)
         {
             bool value = false;
 
-            if (fuzzifiedValues.ContainsKey(Category))
-                value = fuzzifiedValues[Category].Equals(Name);
+            if (fuzzifiedValues.ContainsKey(FuzzyMember.Category))
+                value = fuzzifiedValues[FuzzyMember.Category].FuzzyMember.Name.Equals(FuzzyMember.Name);
 
             operandStack.Push(value);
         }
@@ -31,6 +27,11 @@ namespace FuzzyLogicSystems.Core.Rules
         public void ToPostFix(IList<IRulePart> postFix, Stack<RuleOperator> operatorStack)
         {
             postFix.Add(this);
+        }
+
+        public override string ToString()
+        {
+            return _fuzzy_member.ToString();
         }
     }
 }
