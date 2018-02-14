@@ -1,5 +1,5 @@
 ﻿
-namespace FuzzyLogicSystems.Core.Values
+namespace FuzzyLogicSystems.Core
 {
     // class for containing fuzzymembers that fuzzifiy crisp values
     public interface IInputFuzzyMember : IFuzzyMember
