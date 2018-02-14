@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using FuzzyLogicSystems.Core.Values;
 
 namespace FuzzyLogicSystems.Core.Generic.Defuzzifier
 {
-    class WeightedAverageDefuzzifier : IDefuzzifier
+    public class WeightedAverageDefuzzifier : IDefuzzifier
     {
         public float Defuzzify(IList<FuzzyValue<ResultFuzzyMember>> results)
         {

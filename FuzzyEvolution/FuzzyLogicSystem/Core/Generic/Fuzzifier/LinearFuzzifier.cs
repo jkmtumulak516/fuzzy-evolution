@@ -5,7 +5,7 @@ using FuzzyLogicSystems.Util;
 
 namespace FuzzyLogicSystems.Core.Generic.Fuzzifier
 {
-    class LinearFuzzifier : IFuzzifier
+    public class LinearFuzzifier : IFuzzifier
     {
         public IDictionary<int, IList<FuzzyValue<InputFuzzyMember>>> Fuzzify(IDictionary<int, float> crispValues, IDictionary<int, FuzzySet<InputFuzzyMember>> fuzzySets)
         {

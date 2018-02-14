@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using FuzzyLogicSystems.Core.Values;
 
 namespace FuzzyLogicSystems.Core.Generic.Fuzzifier
 {
-    class Fuzzifier : IFuzzifier
+    public class Fuzzifier : IFuzzifier
     {
         public IDictionary<int, IList<FuzzyValue<InputFuzzyMember>>> Fuzzify(IDictionary<int, float> crispValues, IDictionary<int, FuzzySet<InputFuzzyMember>> fuzzySets)
         {

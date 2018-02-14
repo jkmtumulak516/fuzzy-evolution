@@ -2,7 +2,7 @@
 
 namespace FuzzyLogicSystems.Core.Generic
 {
-    class FuzzyLogicSystem : IFuzzyLogicSystem
+    public class FuzzyLogicSystem : IFuzzyLogicSystem
     {
         private readonly IFuzzifier _fuzzifier;
         private readonly IDefuzzifier _defuzzifier;

@@ -52,6 +52,7 @@
     <Compile Include="Core\Generic\RuleBase\TestEvaluationTreeRuleBase.cs" />
     <Compile Include="Core\Rules\TestRuleBuilder.cs" />
     <Compile Include="Core\Rules\TestRule.cs" />
+    <Compile Include="Core\TestFuzzyLogicSystem.cs" />
     <Compile Include="Core\Values\Generic\TestGaussianInput.cs" />
     <Compile Include="Core\Values\Generic\TestLinearInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

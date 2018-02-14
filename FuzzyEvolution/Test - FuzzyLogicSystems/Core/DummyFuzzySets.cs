@@ -81,6 +81,44 @@ namespace TestFuzzyLogicSystems.Core
             public InputFuzzyMember SlightlyShort { get => _slightly_short; }
             public InputFuzzyMember Short { get => _short; }
         }
+    
+        public class TestWeight : FuzzySet<InputFuzzyMember>
+        {
+            public TestWeight(int category) : base(category) { }
+
+            private InputFuzzyMember _heavy;
+            private InputFuzzyMember _slightly_heavy;
+            private InputFuzzyMember _slightly_light;
+            private InputFuzzyMember _light;
+
+            protected override ISet<InputFuzzyMember> InitializeMembers()
+            {
+                var set = new HashSet<InputFuzzyMember>();
+
+                // hot
+                _heavy = new LinearInput("Heavy", this, 200, false, true, 15, 5);
+                set.Add(_heavy);
+
+                // warm 
+                _slightly_heavy = new LinearInput("Slightly Heavy", this, 180, false, false, 15, 2.5f);
+                set.Add(_slightly_heavy);
+
+                // cool
+                _slightly_light = new LinearInput("Slightly Light", this, 160, false, false, 15, 2.5f);
+                set.Add(_slightly_light);
+
+                // cold
+                _light = new LinearInput("Light", this, 140, true, false, 15, 5);
+                set.Add(_light);
+
+                return set;
+            }
+
+            public InputFuzzyMember Heavy { get => _heavy; }
+            public InputFuzzyMember SlightlyHeavy{ get => _slightly_heavy; }
+            public InputFuzzyMember SlightlyLight { get => _slightly_light; }
+            public InputFuzzyMember Light { get => _light; }
+        }
 
         public class TestSpecial : FuzzySet<ResultFuzzyMember>
         {
