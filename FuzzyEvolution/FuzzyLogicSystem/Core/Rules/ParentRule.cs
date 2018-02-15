@@ -5,7 +5,7 @@ namespace FuzzyLogicSystems.Core.Rules
 {
     public class ParentRule : Rule
     {
-        internal ParentRule(List<IRulePart> ruleParts, IResultFuzzyMember result) 
+        internal ParentRule(IList<IRulePart> ruleParts, IResultFuzzyMember result) 
             : base(ruleParts, result) { }
 
         public List<SubRule> SubRules()
@@ -19,7 +19,7 @@ namespace FuzzyLogicSystems.Core.Rules
             {
                 if ((ruleOperator = rulePart as RuleOperator) != null && ruleOperator.OperatorType == BooleanOperator.OR)
                 {
-                    subRules.Add(new SubRule(RuleParts.GetRange(startIndex, count), this));
+                    subRules.Add(new SubRule(((List<IRulePart>)RuleParts).GetRange(startIndex, count), this));
                     startIndex = count + 1;
                     count = 0;
                 }
@@ -27,7 +27,7 @@ namespace FuzzyLogicSystems.Core.Rules
                 else count++;
             }
 
-            subRules.Add(new SubRule(RuleParts.GetRange(startIndex, count), this));
+            subRules.Add(new SubRule(((List<IRulePart>)RuleParts).GetRange(startIndex, count), this));
 
             return subRules;
         }
