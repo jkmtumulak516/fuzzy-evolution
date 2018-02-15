@@ -8,7 +8,7 @@ namespace FuzzyLogicSystems.Core.Rules
         private readonly Rule _parent;
         private readonly IDictionary<int, RuleOperand> _variables;
 
-        internal SubRule(List<IRulePart> ruleParts, Rule parent)
+        internal SubRule(IList<IRulePart> ruleParts, Rule parent)
             : base(ruleParts, parent.Result)
         {
             _parent = parent;
