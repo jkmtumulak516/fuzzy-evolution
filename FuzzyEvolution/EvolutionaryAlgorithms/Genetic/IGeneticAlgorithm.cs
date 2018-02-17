@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace EvolutionaryAlgorithms.Genetic
 {
-    interface IGeneticAlgorithm
+    public interface IGeneticAlgorithm<T> where T : IOrganism
     {
+        ISelectionMethod SelectionMethod { get; }
+        ICrossoverMethod CrossoverMethod { get; }
+
+        IList<T> BreedNewGeneration(IList<T> population);
     }
 }
