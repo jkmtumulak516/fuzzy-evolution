@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace EvolutionaryAlgorithms.Genetic
 {
-    interface ISelectionMethod
+    public interface ISelectionMethod
     {
+        IList<Tuple<IOrganism, IOrganism>>  SelectPairings(IList<IOrganism> population);
     }
 }

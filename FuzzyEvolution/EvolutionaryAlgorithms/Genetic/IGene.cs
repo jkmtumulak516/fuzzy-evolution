@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace EvolutionaryAlgorithms.Genetic
 {
-    interface IGene
+    public interface IGene : IMutatable
     {
+        IList<ISubGene> SubGenes { get; }
     }
 }

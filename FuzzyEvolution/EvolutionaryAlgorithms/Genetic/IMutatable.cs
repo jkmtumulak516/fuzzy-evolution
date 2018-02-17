@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace EvolutionaryAlgorithms.Genetic
 {
-    interface IMutatable
+    public interface IMutatable
     {
+        bool CanMutate { get; }
+
+        void Mutate(float seed);
     }
 }

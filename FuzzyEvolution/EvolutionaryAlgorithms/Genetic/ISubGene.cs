@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EvolutionaryAlgorithms.Genetic
 {
-    interface ISubGene
+    public interface ISubGene : IMutatable
     {
     }
 }

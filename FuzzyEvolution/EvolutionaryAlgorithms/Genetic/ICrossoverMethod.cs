@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace EvolutionaryAlgorithms.Genetic
 {
-    interface ICrossoverMethod
+    public interface ICrossoverMethod
     {
+        Tuple<IOrganism, IOrganism> CrossoverPairing(IOrganism o1, IOrganism o2);
     }
 }
