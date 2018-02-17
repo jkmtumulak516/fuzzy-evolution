@@ -44,7 +44,7 @@
     <Compile Include="Genetic\Generic\Crossover\TwoPointCrossover.cs" />
     <Compile Include="Genetic\Generic\Crossover\UniformCrossover.cs" />
     <Compile Include="Genetic\Generic\GeneticAlgorithm.cs" />
-    <Compile Include="Genetic\Generic\Selection\FitenessProportionateSelection.cs" />
+    <Compile Include="Genetic\Generic\Selection\FitnessProportionateSelection.cs" />
     <Compile Include="Genetic\Generic\Selection\RewardBasedSelection.cs" />
     <Compile Include="Genetic\Generic\Selection\StochasticUniversalSamplingSelection.cs" />
     <Compile Include="Genetic\Generic\Selection\TournamentSelection.cs" />

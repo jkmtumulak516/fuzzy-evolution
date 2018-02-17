@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EvolutionaryAlgorithms.Genetic.Generic.Selection
 {
-    class FitenessProportionateSelection
+    class FitnessProportionateSelection
     {
     }
 }
