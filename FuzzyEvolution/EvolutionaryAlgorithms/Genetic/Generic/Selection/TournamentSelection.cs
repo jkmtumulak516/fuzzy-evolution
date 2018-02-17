@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EvolutionaryAlgorithms
+namespace EvolutionaryAlgorithms.Genetic.Generic.Selection
 {
-    public class Class1
+    class TournamentSelection
     {
     }
 }
