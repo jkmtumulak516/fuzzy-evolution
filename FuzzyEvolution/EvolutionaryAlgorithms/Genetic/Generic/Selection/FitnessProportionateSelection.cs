@@ -1,29 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace EvolutionaryAlgorithms.Genetic.Generic.Selection
 {
-    public class StochasticUniversalSamplingSelection : ISelectionMethod
+    public class FitnessProportionateSelection : ISelectionMethod
     {
-        private readonly float _min_increment;
-        private readonly float _max_increment;
         private readonly Random _random;
 
-        private StochasticUniversalSamplingSelection(float minIncrement, float maxIncrement)
+        private FitnessProportionateSelection()
         {
-            if (minIncrement < 0f || minIncrement > 1f) throw new ArgumentException("Parameter Minimum Increment must range between 0.00 and 1.00 inclusive.");
-            if (maxIncrement < 0f || maxIncrement > 1f) throw new ArgumentException("Parameter Maximum Increment must range between 0.00 and 1.00 inclusive.");
-            if (minIncrement > maxIncrement) throw new ArgumentException("Parameter Minimum Increment must be less than or equal to Maximum Increment.");
-
-            _min_increment = minIncrement;
-            _max_increment = maxIncrement;
-
             _random = new Random();
         }
-
-        public float MinimumIncrement { get => _min_increment; }
-        public float MaximumIncrement { get => _max_increment; }
 
         public IList<Tuple<O, O>> SelectPairings<O, G>(IList<O> population)
             where O : IOrganism<O, G>
@@ -41,17 +29,13 @@ namespace EvolutionaryAlgorithms.Genetic.Generic.Selection
                 recent += organism.Fitness;
             }
 
-            float pointer = (float)_random.NextDouble() * totalFitness;
-            float increment = ((float)_random.NextDouble() * (MaximumIncrement - MinimumIncrement)) + MinimumIncrement;
-            int quota = population.Count >> 1 + ((population.Count & 1) == 1 ? 1 : 0 );
+            int quota = population.Count >> 1 + ((population.Count & 1) == 1 ? 1 : 0);
             var result = new List<Tuple<O, O>>(quota);
 
             for (int i = 0; i < quota; i++)
             {
-                int firstIndex = BinarySearchIndex(pointer, fitnessIncrements);
-                pointer = (pointer + increment) % totalFitness;
-                int secondIndex = BinarySearchIndex(pointer, fitnessIncrements);
-                pointer = (pointer + increment) % totalFitness;
+                int firstIndex = BinarySearchIndex((float)_random.NextDouble() * totalFitness, fitnessIncrements);
+                int secondIndex = BinarySearchIndex((float)_random.NextDouble() * totalFitness, fitnessIncrements);
 
                 result.Add(new Tuple<O, O>(population[firstIndex], population[secondIndex]));
             }

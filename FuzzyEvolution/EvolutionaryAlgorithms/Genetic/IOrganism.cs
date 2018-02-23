@@ -2,9 +2,9 @@
 
 namespace EvolutionaryAlgorithms.Genetic
 {
-    public interface IOrganism : IMutatable
+    public interface IOrganism<O, G> where O : IOrganism<O, G> where G : IGene<G>
     {
         float Fitness { get; }
-        IList<IGene> Genes { get; }
+        List<G> Genes { get; }
     }
 }

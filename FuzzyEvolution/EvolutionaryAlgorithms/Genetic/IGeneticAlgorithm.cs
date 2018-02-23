@@ -2,11 +2,11 @@
 
 namespace EvolutionaryAlgorithms.Genetic
 {
-    public interface IGeneticAlgorithm<T> where T : IOrganism
+    public interface IGeneticAlgorithm<O, G> where O : IOrganism<O, G> where G : IGene<G>
     {
         ISelectionMethod SelectionMethod { get; }
         ICrossoverMethod CrossoverMethod { get; }
 
-        IList<T> BreedNewGeneration(IList<T> population);
+        IList<O> BreedNewGeneration(IList<O> population, float mutationChance);
     }
 }
