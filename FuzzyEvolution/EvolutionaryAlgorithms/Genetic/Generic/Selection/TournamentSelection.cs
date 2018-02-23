@@ -1,12 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EvolutionaryAlgorithms.Genetic.Generic.Selection
 {
-    class TournamentSelection
+    public class TournamentSelection : ISelectionMethod
     {
+        private readonly float _min_increment;
+        private readonly float _max_increment;
+        private readonly Random _random;
+
+        private TournamentSelection()
+        {
+            _random = new Random();
+        }
+
+        public IList<Tuple<O, O>> SelectPairings<O, G>(IList<O> population)
+            where O : IOrganism<O, G>
+            where G : IGene<G>
+        {
+
+
+            throw new NotImplementedException();
+        }
     }
 }

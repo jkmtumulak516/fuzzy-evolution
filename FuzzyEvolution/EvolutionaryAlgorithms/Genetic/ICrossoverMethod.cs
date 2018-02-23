@@ -4,6 +4,6 @@ namespace EvolutionaryAlgorithms.Genetic
 {
     public interface ICrossoverMethod
     {
-        Tuple<T, T> CrossoverPairings<T>(T o1, T o2) where T : IOrganism;
+        Tuple<O, O> CrossoverGenes<O, G>(O o1, O o2, IOrganismFactory<O, G> organismFactory, IGeneCopier<G> geneCopier) where O : IOrganism<O, G> where G : IGene<G>;
     }
 }

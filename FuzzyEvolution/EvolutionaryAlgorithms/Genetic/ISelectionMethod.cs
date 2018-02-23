@@ -5,6 +5,6 @@ namespace EvolutionaryAlgorithms.Genetic
 {
     public interface ISelectionMethod
     {
-        IList<Tuple<T, T>> SelectPairings<T>(IList<T> population) where T : IOrganism;
+        IList<Tuple<O, O>> SelectPairings<O, G>(IList<O> population) where O : IOrganism<O, G> where G : IGene<G>;
     }
 }

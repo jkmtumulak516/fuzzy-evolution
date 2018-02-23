@@ -50,11 +50,11 @@
     <Compile Include="Genetic\Generic\Selection\TournamentSelection.cs" />
     <Compile Include="Genetic\ICrossoverMethod.cs" />
     <Compile Include="Genetic\IGene.cs" />
+    <Compile Include="Genetic\IGeneCopier.cs" />
     <Compile Include="Genetic\IGeneticAlgorithm.cs" />
-    <Compile Include="Genetic\IMutatable.cs" />
     <Compile Include="Genetic\IOrganism.cs" />
+    <Compile Include="Genetic\IOrganismFactory.cs" />
     <Compile Include="Genetic\ISelectionMethod.cs" />
-    <Compile Include="Genetic\ISubGene.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
