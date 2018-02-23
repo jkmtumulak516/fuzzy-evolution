@@ -1,10 +1,10 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestEvolutionaryAlgorithms
+namespace TestEvolutionaryAlgorithms.Genetic.Generic.Crossover
 {
     [TestClass]
-    public class UnitTest1
+    public class TestUniformCrossover
     {
         [TestMethod]
         public void TestMethod1()
