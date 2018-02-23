@@ -45,9 +45,7 @@
     <Compile Include="Genetic\Generic\Crossover\UniformCrossover.cs" />
     <Compile Include="Genetic\Generic\GeneticAlgorithm.cs" />
     <Compile Include="Genetic\Generic\Selection\FitnessProportionateSelection.cs" />
-    <Compile Include="Genetic\Generic\Selection\RewardBasedSelection.cs" />
     <Compile Include="Genetic\Generic\Selection\StochasticUniversalSamplingSelection.cs" />
-    <Compile Include="Genetic\Generic\Selection\TournamentSelection.cs" />
     <Compile Include="Genetic\ICrossoverMethod.cs" />
     <Compile Include="Genetic\IGene.cs" />
     <Compile Include="Genetic\IGeneCopier.cs" />
