@@ -107,7 +107,7 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
         {
             public TestFuzzySet(int category) : base(category) { }
 
-            protected override ISet<IResultFuzzyMember> InitializeMembers()
+            protected override ICollection<IResultFuzzyMember> InitializeMembers()
             {
                 return new HashSet<IResultFuzzyMember>();
             }

@@ -15,7 +15,7 @@ namespace TestFuzzyLogicSystems.Core
             private IInputFuzzyMember _cool;
             private IInputFuzzyMember _cold;
 
-            protected override ISet<IInputFuzzyMember> InitializeMembers()
+            protected override ICollection<IInputFuzzyMember> InitializeMembers()
             {
                 var set = new HashSet<IInputFuzzyMember>();
 
@@ -53,7 +53,7 @@ namespace TestFuzzyLogicSystems.Core
             private IInputFuzzyMember _slightly_short;
             private IInputFuzzyMember _short;
 
-            protected override ISet<IInputFuzzyMember> InitializeMembers()
+            protected override ICollection<IInputFuzzyMember> InitializeMembers()
             {
                 var set = new HashSet<IInputFuzzyMember>();
 
@@ -91,7 +91,7 @@ namespace TestFuzzyLogicSystems.Core
             private IInputFuzzyMember _slightly_light;
             private IInputFuzzyMember _light;
 
-            protected override ISet<IInputFuzzyMember> InitializeMembers()
+            protected override ICollection<IInputFuzzyMember> InitializeMembers()
             {
                 var set = new HashSet<IInputFuzzyMember>();
 
@@ -129,7 +129,7 @@ namespace TestFuzzyLogicSystems.Core
             private IResultFuzzyMember _unoriginal;
             private IResultFuzzyMember _plain;
 
-            protected override ISet<IResultFuzzyMember> InitializeMembers()
+            protected override ICollection<IResultFuzzyMember> InitializeMembers()
             {
                 var set = new HashSet<IResultFuzzyMember>();
 
