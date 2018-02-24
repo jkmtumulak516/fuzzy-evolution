@@ -61,6 +61,8 @@ namespace FuzzyLogicSystems.Core.Rules
             if (LastAdded == None) throw new RuleSyntaxException("Cannot build Rule. Rules is empty.");
 
             var rule = new ParentRule(RuleParts, result);
+
+            Reset();
             return rule;
         }
 
