@@ -5,6 +5,6 @@ namespace EvolutionaryAlgorithms.Genetic
     public interface IOrganism<O, G> where O : IOrganism<O, G> where G : IGene<G>
     {
         float Fitness { get; }
-        List<G> Genes { get; }
+        IList<G> Genes { get; }
     }
 }

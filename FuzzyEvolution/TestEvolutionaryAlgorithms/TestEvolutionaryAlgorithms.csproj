@@ -48,6 +48,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Genetic\DummyGene.cs" />
+    <Compile Include="Genetic\DummyOrganism.cs" />
+    <Compile Include="Genetic\DummyOrganismFactory.cs" />
     <Compile Include="Genetic\Generic\Crossover\TestSinglePointCrossover.cs" />
     <Compile Include="Genetic\Generic\Crossover\TestTwoPointCrossover.cs" />
     <Compile Include="Genetic\Generic\Crossover\TestUniformCrossover.cs" />
@@ -59,7 +62,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\EvolutionaryAlgorithms\EvolutionaryAlgorithms.csproj">
+      <Project>{fbc819b6-a5d9-44ff-a7c9-1f4329572f2a}</Project>
+      <Name>EvolutionaryAlgorithms</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

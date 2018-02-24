@@ -1,5 +1,8 @@
 ﻿using System;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EvolutionaryAlgorithms.Genetic.Generic.Crossover
 {
@@ -24,9 +27,14 @@ namespace EvolutionaryAlgorithms.Genetic.Generic.Crossover
             var firstGeneSet = new List<G>(smallGenes.Count);
             var secondGeneSet = new List<G>(bigGenes.Count);
 
+            //firstGeneSet.AddRange(
+            //    smallGenes.GetRange(0, crossoverPoint + 1)
+            //    .ConvertAll(x => geneCopier.DeepCopy(x)));
+
             firstGeneSet.AddRange(
                 smallGenes.GetRange(0, crossoverPoint + 1)
                 .ConvertAll(x => geneCopier.DeepCopy(x)));
+
 
             secondGeneSet.AddRange(
                 bigGenes.GetRange(0, crossoverPoint + 1)
