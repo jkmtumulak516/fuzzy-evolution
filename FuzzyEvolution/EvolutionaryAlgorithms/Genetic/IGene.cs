@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-
+﻿
 namespace EvolutionaryAlgorithms.Genetic
 {
-    public interface IGene : IMutatable
+    public interface IGene<G> where G : IGene<G>
     {
-        IList<ISubGene> SubGenes { get; }
+        void Mutate(float seed);
     }
 }
