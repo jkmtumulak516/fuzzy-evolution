@@ -129,6 +129,23 @@ namespace TestFuzzyLogicSystems.Core.Values.Generic
             Assert.AreEqual(0.5f, linearInput.GetMembership(crispValue));
         }
 
+        [TestMethod]
+        public void LinearInputLargeWidthAndCrisp()
+        {
+            string name = "test";
+            float peak = 0.0f;
+            bool ceilLeft = false;
+            bool ceilRight = false;
+            float baseHalfWidth = 50f;
+            float peakHalfWidth = 0f;
+
+            var linearInput = new LinearInput
+                (name, inputFuzzySet, peak, ceilLeft, ceilRight, baseHalfWidth, peakHalfWidth);
+            float crispValue = 25f;
+
+            Assert.AreEqual(0.5f, linearInput.GetMembership(crispValue));
+        }
+
         private class TestFuzzySet : FuzzySet<IInputFuzzyMember>
         {
             public TestFuzzySet(int category) : base(category) { }

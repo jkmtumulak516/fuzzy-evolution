@@ -52,7 +52,7 @@ namespace FuzzyLogicSystems.Core.Values.Generic
             
             float effectiveCenter = crispValue < Peak ? Peak - PeakHalfWidth : Peak + PeakHalfWidth;
 
-            return diffInCenterAndValue < BaseHalfWidth ? MathUtil.LinearDistance(effectiveCenter, crispValue) : 0.0f;
+            return diffInCenterAndValue < BaseHalfWidth ? MathUtil.LinearDistance(effectiveCenter, crispValue, BaseHalfWidth - PeakHalfWidth) : 0.0f;
         }
 
         public bool Equals(IFuzzyMember other)
