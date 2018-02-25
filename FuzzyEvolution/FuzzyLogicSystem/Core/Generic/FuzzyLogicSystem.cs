@@ -22,13 +22,16 @@ namespace FuzzyLogicSystems.Core.Generic
         public IDefuzzifier Defuzzifier{ get => _defuzzifier; }
         public IFuzzyRuleBase RuleBase { get => _rule_base; }
 
-        public Tuple<float, IDictionary<int, IList<FuzzyValue<IInputFuzzyMember>>>, IList<FuzzyValue<IResultFuzzyMember>>> Evaluate(IDictionary<int, float> crispValues)
+        public float Evaluate(IDictionary<int, float> crispValues, out IDictionary<int, IList<FuzzyValue<IInputFuzzyMember>>> fuzzified, out IList<FuzzyValue<IResultFuzzyMember>> evaluated)
         {
             var fuzzifiedValues = Fuzzifier.Fuzzify(crispValues, RuleBase.InputFuzzySets);
             var evaluatedValues = RuleBase.Evaluate(fuzzifiedValues);
             var defuzzifiedValue = Defuzzifier.Defuzzify(evaluatedValues);
 
-            return new Tuple<float, IDictionary<int, IList<FuzzyValue<IInputFuzzyMember>>>, IList<FuzzyValue<IResultFuzzyMember>>>(defuzzifiedValue, fuzzifiedValues, evaluatedValues);
+            fuzzified = fuzzifiedValues;
+            evaluated = evaluatedValues;
+
+            return defuzzifiedValue;
         }
     }
 }

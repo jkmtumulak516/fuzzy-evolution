@@ -10,6 +10,6 @@ namespace FuzzyLogicSystems.Core
         IDefuzzifier Defuzzifier { get; }
         IFuzzyRuleBase RuleBase { get; }
 
-        Tuple<float, IDictionary<int, IList<FuzzyValue<IInputFuzzyMember>>>, IList<FuzzyValue<IResultFuzzyMember>>> Evaluate(IDictionary<int, float> crispValues);
+        float Evaluate(IDictionary<int, float> crispValues, out IDictionary<int, IList<FuzzyValue<IInputFuzzyMember>>> fuzzified, out IList<FuzzyValue<IResultFuzzyMember>> evaluated);
     }
 }
