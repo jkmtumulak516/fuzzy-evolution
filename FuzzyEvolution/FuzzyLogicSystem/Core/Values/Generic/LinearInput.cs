@@ -18,6 +18,9 @@ namespace FuzzyLogicSystems.Core.Values.Generic
         public LinearInput(string name, FuzzySet<IInputFuzzyMember> containingSet, float peak,
             bool ceilLeft, bool ceilRight, float baseHalfWidth, float peakHalfWidth)
         {
+            if (peakHalfWidth > baseHalfWidth)
+                throw new ArgumentException("BaseHalfWidth must be greater than or equal to PeakHalfWidth.");
+
             _name = name;
             _category = containingSet.Category;
             _peak = peak;
