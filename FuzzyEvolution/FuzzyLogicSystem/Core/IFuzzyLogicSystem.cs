@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System;
+using FuzzyLogicSystems.Core.Values;
 
 namespace FuzzyLogicSystems.Core
 {
@@ -8,6 +10,6 @@ namespace FuzzyLogicSystems.Core
         IDefuzzifier Defuzzifier { get; }
         IFuzzyRuleBase RuleBase { get; }
 
-        float Evaluate(IDictionary<int, float> crispValues);
+        Tuple<float, IDictionary<int, IList<FuzzyValue<IInputFuzzyMember>>>, IList<FuzzyValue<IResultFuzzyMember>>> Evaluate(IDictionary<int, float> crispValues);
     }
 }
