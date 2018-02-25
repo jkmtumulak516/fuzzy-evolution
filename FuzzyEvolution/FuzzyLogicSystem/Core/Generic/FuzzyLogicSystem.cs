@@ -1,4 +1,7 @@
 ﻿using System.Collections.Generic;
+using System;
+using FuzzyLogicSystems.Core.Values;
+using FuzzyLogicSystems.Core;
 
 namespace FuzzyLogicSystems.Core.Generic
 {
@@ -19,13 +22,13 @@ namespace FuzzyLogicSystems.Core.Generic
         public IDefuzzifier Defuzzifier{ get => _defuzzifier; }
         public IFuzzyRuleBase RuleBase { get => _rule_base; }
 
-        public float Evaluate(IDictionary<int, float> crispValues)
+        public Tuple<float, IDictionary<int, IList<FuzzyValue<IInputFuzzyMember>>>, IList<FuzzyValue<IResultFuzzyMember>>> Evaluate(IDictionary<int, float> crispValues)
         {
             var fuzzifiedValues = Fuzzifier.Fuzzify(crispValues, RuleBase.InputFuzzySets);
             var evaluatedValues = RuleBase.Evaluate(fuzzifiedValues);
             var defuzzifiedValue = Defuzzifier.Defuzzify(evaluatedValues);
 
-            return defuzzifiedValue;
+            return new Tuple<float, IDictionary<int, IList<FuzzyValue<IInputFuzzyMember>>>, IList<FuzzyValue<IResultFuzzyMember>>>(defuzzifiedValue, fuzzifiedValues, evaluatedValues);
         }
     }
 }
