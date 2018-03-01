@@ -7,7 +7,7 @@ namespace EvolutionaryAlgorithms.Genetic.Generic.Crossover
     {
         private readonly Random _random;
 
-        private UniformCrossover()
+        public UniformCrossover()
         {
             _random = new Random();
         }

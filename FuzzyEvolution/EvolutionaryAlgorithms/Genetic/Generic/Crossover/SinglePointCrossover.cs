@@ -7,7 +7,7 @@ namespace EvolutionaryAlgorithms.Genetic.Generic.Crossover
     {
         private readonly Random _random;
 
-        private SinglePointCrossover()
+        public SinglePointCrossover()
         {
             _random = new Random();
         }
@@ -27,7 +27,7 @@ namespace EvolutionaryAlgorithms.Genetic.Generic.Crossover
             firstGeneSet.AddRange(
                 smallGenes.GetRange(0, crossoverPoint + 1)
                 .ConvertAll(x => geneCopier.DeepCopy(x)));
-
+            
             secondGeneSet.AddRange(
                 bigGenes.GetRange(0, crossoverPoint + 1)
                 .ConvertAll(x => geneCopier.DeepCopy(x)));
