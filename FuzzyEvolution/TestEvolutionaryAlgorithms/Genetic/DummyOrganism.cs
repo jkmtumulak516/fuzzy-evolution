@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Linq;
 using System.Collections.Generic;
 using EvolutionaryAlgorithms.Genetic;
 
@@ -9,19 +9,19 @@ namespace TestEvolutionaryAlgorithms.Genetic
         private readonly float _fitness;
         private readonly List<DummyGene> _genes;
 
-        public DummyOrganism(float fitness, List<int> list)
+        public DummyOrganism(float fitness, IList<int> list)
         {
             _fitness = fitness;
-            _genes = list.ConvertAll(x => new DummyGene(x));
+            _genes = (from x in list select x).ToList().ConvertAll(x => new DummyGene(x));
         }
 
-        public DummyOrganism(float fitness, List<DummyGene> list)
+        public DummyOrganism(float fitness, IList<DummyGene> list)
         {
             _fitness = fitness;
-            _genes = list;
+            _genes = (from x in list select x).ToList();
         }
 
         public float Fitness { get => _fitness; }
-        public IList<DummyGene> Genes { get => _genes; }
+        public List<DummyGene> Genes { get => _genes; }
     }
 }

@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Genetic\DummyGene.cs" />
+    <Compile Include="Genetic\DummyGeneCopier.cs" />
     <Compile Include="Genetic\DummyOrganism.cs" />
     <Compile Include="Genetic\DummyOrganismFactory.cs" />
     <Compile Include="Genetic\Generic\Crossover\TestSinglePointCrossover.cs" />

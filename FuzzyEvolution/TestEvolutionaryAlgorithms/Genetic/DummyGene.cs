@@ -11,6 +11,8 @@ namespace TestEvolutionaryAlgorithms.Genetic
             _value = value;
         }
 
+        public int Value { get => _value; }
+
         public void Mutate(float seed)
         {
             if (seed < .5f)

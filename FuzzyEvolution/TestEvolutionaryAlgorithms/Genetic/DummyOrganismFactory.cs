@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using EvolutionaryAlgorithms.Genetic;
 
 namespace TestEvolutionaryAlgorithms.Genetic
@@ -11,7 +7,7 @@ namespace TestEvolutionaryAlgorithms.Genetic
     {
         public DummyOrganism Make(IList<DummyGene> genes)
         {
-            throw new NotImplementedException();
+            return new DummyOrganism(0f, genes);
         }
     }
 }

@@ -10,10 +10,10 @@ namespace EvolutionaryAlgorithms.Genetic.Generic.Selection
         private readonly float _max_increment;
         private readonly Random _random;
 
-        private StochasticUniversalSamplingSelection(float minIncrement, float maxIncrement)
+        public StochasticUniversalSamplingSelection(float minIncrement, float maxIncrement)
         {
-            if (minIncrement < 0f || minIncrement > 1f) throw new ArgumentException("Parameter Minimum Increment must range between 0.00 and 1.00 inclusive.");
-            if (maxIncrement < 0f || maxIncrement > 1f) throw new ArgumentException("Parameter Maximum Increment must range between 0.00 and 1.00 inclusive.");
+            if (minIncrement < 0f || minIncrement > 1f) throw new ArgumentOutOfRangeException("Parameter Minimum Increment must range between 0.00 and 1.00 inclusive.");
+            if (maxIncrement < 0f || maxIncrement > 1f) throw new ArgumentOutOfRangeException("Parameter Maximum Increment must range between 0.00 and 1.00 inclusive.");
             if (minIncrement > maxIncrement) throw new ArgumentException("Parameter Minimum Increment must be less than or equal to Maximum Increment.");
 
             _min_increment = minIncrement;
