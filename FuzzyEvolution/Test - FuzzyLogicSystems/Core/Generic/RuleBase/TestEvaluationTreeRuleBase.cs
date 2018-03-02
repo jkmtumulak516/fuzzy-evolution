@@ -175,7 +175,7 @@ namespace TestFuzzyLogicSystems.Core.Generic.RuleBase
             }
         }
 
-        private IList<ParentRule> CreateRules()
+        private List<ParentRule> CreateRules()
         {
             var listOfRules = new List<ParentRule>();
             var rb = new RuleBuilder();

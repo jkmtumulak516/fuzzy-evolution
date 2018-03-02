@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace FuzzyLogicSystems.Core.Values
 {
-    public abstract class FuzzySet<T> where T : IFuzzyMember
+    public abstract class FuzzySet<T> where T : IFuzzyMember<T>
     {
         private readonly int _category;
         private readonly ISet<T> _members;
