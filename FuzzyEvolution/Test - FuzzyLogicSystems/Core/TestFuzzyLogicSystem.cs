@@ -77,7 +77,7 @@ namespace TestFuzzyLogicSystems.Core
             Assert.AreEqual(20f, output, 0f, "Incorrect output.");
         }
 
-        private IList<ParentRule> CreateRules()
+        private List<ParentRule> CreateRules()
         {
             var listOfRules = new List<ParentRule>();
             var rb = new RuleBuilder();

@@ -2,7 +2,7 @@
 {
     // should i use a template for this???
     // immutable
-    public class FuzzyValue<T> where T : IFuzzyMember
+    public class FuzzyValue<T> where T : IFuzzyMember<T>
     {
         // immutability
         private readonly float _degree;

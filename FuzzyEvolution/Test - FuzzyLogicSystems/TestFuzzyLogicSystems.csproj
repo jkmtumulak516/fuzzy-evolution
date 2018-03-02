@@ -67,6 +67,10 @@
     <Folder Include="IO\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EvolutionaryAlgorithms\EvolutionaryAlgorithms.csproj">
+      <Project>{fbc819b6-a5d9-44ff-a7c9-1f4329572f2a}</Project>
+      <Name>EvolutionaryAlgorithms</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FuzzyLogicSystem\FuzzyLogicSystems.csproj">
       <Project>{d0e83039-099a-4930-9704-0fef26584873}</Project>
       <Name>FuzzyLogicSystems</Name>

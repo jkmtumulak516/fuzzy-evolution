@@ -8,6 +8,8 @@ namespace FuzzyLogicSystems.Core.Rules
         internal ParentRule(IList<IRulePart> ruleParts, IResultFuzzyMember result) 
             : base(ruleParts, result) { }
 
+        internal Rule ToRule { get => this; }
+
         public IList<SubRule> SubRules()
         {
             var subRules = new List<SubRule>();

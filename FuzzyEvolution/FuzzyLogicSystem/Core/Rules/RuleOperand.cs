@@ -5,14 +5,14 @@ namespace FuzzyLogicSystems.Core.Rules
 {
     internal class RuleOperand : IRulePart
     {
-        private readonly IFuzzyMember _fuzzy_member;
+        private readonly IFuzzyMember<IInputFuzzyMember> _fuzzy_member;
 
-        internal RuleOperand(IFuzzyMember fuzzyMember)
+        internal RuleOperand(IFuzzyMember<IInputFuzzyMember> fuzzyMember)
         {
             _fuzzy_member = fuzzyMember;
         }
 
-        internal IFuzzyMember FuzzyMember { get => _fuzzy_member; }
+        internal IFuzzyMember<IInputFuzzyMember> FuzzyMember { get => _fuzzy_member; }
 
         public void Evaluate(IDictionary<int, FuzzyValue<IInputFuzzyMember>> fuzzifiedValues, Stack<bool> operandStack)
         {
