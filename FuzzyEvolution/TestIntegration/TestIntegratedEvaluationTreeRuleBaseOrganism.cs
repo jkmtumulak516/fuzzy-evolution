@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace TestIntegration
 {
     [TestClass]
-    public class UnitTest1
+    public class TestIntegratedEvaluationTreeRuleBaseOrganism
     {
         [TestMethod]
         public void TestMethod1()
