@@ -50,8 +50,6 @@
   <ItemGroup>
     <Compile Include="Dummy\DummyFuzzySets.cs" />
     <Compile Include="TestIntegratedEvaluationTreeRuleBaseOrganism.cs" />
-    <Compile Include="TestIntegratedFuzzyLogicSystem.cs" />
-    <Compile Include="TestIntegratedRuleGene.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
