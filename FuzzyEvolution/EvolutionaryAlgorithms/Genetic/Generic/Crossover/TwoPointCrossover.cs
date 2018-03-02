@@ -7,7 +7,7 @@ namespace EvolutionaryAlgorithms.Genetic.Generic.Crossover
     {
         private readonly Random _random;
 
-        private TwoPointCrossover()
+        public TwoPointCrossover()
         {
             _random = new Random();
         }
@@ -19,8 +19,8 @@ namespace EvolutionaryAlgorithms.Genetic.Generic.Crossover
             var smallGenes = o1.Genes.Count < o2.Genes.Count ? o1.Genes : o2.Genes;
             var bigGenes = o1.Genes.Count < o2.Genes.Count ? o2.Genes : o1.Genes;
 
-            int firstCrossoverPoint = _random.Next(smallGenes.Count - 3);
-            int secondCrossoverPoint = _random.Next(smallGenes.Count - firstCrossoverPoint - 1) + firstCrossoverPoint;
+            int firstCrossoverPoint = _random.Next(smallGenes.Count - 2);
+            int secondCrossoverPoint = _random.Next(smallGenes.Count - firstCrossoverPoint - 2) + firstCrossoverPoint;
 
             var firstGeneSet = new List<G>(smallGenes.Count);
             var secondGeneSet = new List<G>(bigGenes.Count);
@@ -34,19 +34,19 @@ namespace EvolutionaryAlgorithms.Genetic.Generic.Crossover
                 .ConvertAll(x => geneCopier.DeepCopy(x)));
 
             firstGeneSet.AddRange(
-                bigGenes.GetRange(firstCrossoverPoint + 1, firstCrossoverPoint + secondCrossoverPoint)
+                bigGenes.GetRange(firstCrossoverPoint + 1, secondCrossoverPoint - firstCrossoverPoint)
                 .ConvertAll(x => geneCopier.DeepCopy(x)));
 
             secondGeneSet.AddRange(
-                smallGenes.GetRange(firstCrossoverPoint + 1, firstCrossoverPoint + secondCrossoverPoint)
+                smallGenes.GetRange(firstCrossoverPoint + 1, secondCrossoverPoint - firstCrossoverPoint)
                 .ConvertAll(x => geneCopier.DeepCopy(x)));
 
             firstGeneSet.AddRange(
-                smallGenes.GetRange(secondCrossoverPoint + 1, smallGenes.Count - (firstCrossoverPoint + 1))
+                smallGenes.GetRange(secondCrossoverPoint + 1, smallGenes.Count - (secondCrossoverPoint + 1))
                 .ConvertAll(x => geneCopier.DeepCopy(x)));
 
             secondGeneSet.AddRange(
-                bigGenes.GetRange(secondCrossoverPoint + 1, bigGenes.Count - (firstCrossoverPoint + 1))
+                bigGenes.GetRange(secondCrossoverPoint + 1, bigGenes.Count - (secondCrossoverPoint + 1))
                 .ConvertAll(x => geneCopier.DeepCopy(x)));
 
             return new Tuple<O, O>(organismFactory.Make(firstGeneSet), organismFactory.Make(secondGeneSet));

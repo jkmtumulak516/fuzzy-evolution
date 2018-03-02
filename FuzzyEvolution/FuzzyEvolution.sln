@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvolutionaryAlgorithms", "E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFuzzyLogicSystems", "Test - FuzzyLogicSystems\TestFuzzyLogicSystems.csproj", "{035A5273-E3F4-4244-B1F5-9D8C8D2509E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestEvolutionaryAlgorithms", "TestEvolutionaryAlgorithms\TestEvolutionaryAlgorithms.csproj", "{ECF87B87-96C1-43DB-A907-0E2E5B97D459}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestIntegration", "TestIntegration\TestIntegration.csproj", "{A7EA7D8F-9B97-47F0-A0F7-9E409D0FACA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{035A5273-E3F4-4244-B1F5-9D8C8D2509E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{035A5273-E3F4-4244-B1F5-9D8C8D2509E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{035A5273-E3F4-4244-B1F5-9D8C8D2509E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECF87B87-96C1-43DB-A907-0E2E5B97D459}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECF87B87-96C1-43DB-A907-0E2E5B97D459}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECF87B87-96C1-43DB-A907-0E2E5B97D459}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECF87B87-96C1-43DB-A907-0E2E5B97D459}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7EA7D8F-9B97-47F0-A0F7-9E409D0FACA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7EA7D8F-9B97-47F0-A0F7-9E409D0FACA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7EA7D8F-9B97-47F0-A0F7-9E409D0FACA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7EA7D8F-9B97-47F0-A0F7-9E409D0FACA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

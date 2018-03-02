@@ -23,7 +23,7 @@ namespace FuzzyLogicSystems.Core.Rules
 
         private IList<IRulePart> RuleParts { get => _rule_parts; }
 
-        public RuleBuilder Var(IFuzzyMember fuzzyMember)
+        public RuleBuilder Var(IFuzzyMember<IInputFuzzyMember> fuzzyMember)
         {
             if (LastAdded == Operand) throw new RuleSyntaxException("Cannot add Operand. Operands must be separated by an Operator.");
 

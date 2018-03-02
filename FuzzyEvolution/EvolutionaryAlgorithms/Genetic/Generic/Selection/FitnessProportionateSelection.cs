@@ -8,7 +8,7 @@ namespace EvolutionaryAlgorithms.Genetic.Generic.Selection
     {
         private readonly Random _random;
 
-        private FitnessProportionateSelection()
+        public FitnessProportionateSelection()
         {
             _random = new Random();
         }

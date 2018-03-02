@@ -1,15 +1,16 @@
-﻿using System.Collections.Generic;
-using FuzzyLogicSystems.Core.Values;
+﻿using System.Linq;
+using System.Collections.Generic;
 using System.Text;
-using System;
+using FuzzyLogicSystems.Core.Values;
+using EvolutionaryAlgorithms.Genetic;
 
 namespace FuzzyLogicSystems.Core.Rules
 {
-    public abstract class Rule
+    public abstract class Rule : IGene<Rule>
     {
         private readonly IList<IRulePart> _rule_parts;
         private readonly IList<IRulePart> _post_fix_parts;
-        private readonly IResultFuzzyMember _result;
+        private IResultFuzzyMember _result;
         private readonly string _print_output;
 
         internal Rule(IList<IRulePart> ruleParts, IResultFuzzyMember result)
@@ -59,6 +60,16 @@ namespace FuzzyLogicSystems.Core.Rules
         public override string ToString()
         {
             return _print_output;
+        }
+
+        public void Mutate(float seed)
+        {
+            var set = new SortedSet<IResultFuzzyMember>(Result.ParentSet.Members);
+
+            if (seed < 0.5f)
+                _result = set.Where(x => x.Peak < Result.Peak).FirstOrDefault() ?? _result;
+            else
+                _result = set.OrderByDescending(x => x).Where(x => x.Peak < Result.Peak).FirstOrDefault() ?? _result;
         }
     }
 }

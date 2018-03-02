@@ -14,10 +14,10 @@ namespace EvolutionaryAlgorithms.Genetic.Generic
 
         public GeneticAlgorithm(ISelectionMethod selectionMethod, ICrossoverMethod crossoverMethod, IOrganismFactory<O, G> organismFactory, IGeneCopier<G> geneFactory)
         {
-            _selector = selectionMethod;
-            _crossover = crossoverMethod;
-            _organism_factory = organismFactory;
-            _gene_factory = geneFactory;
+            _selector = selectionMethod ?? throw new NullReferenceException();
+            _crossover = crossoverMethod ?? throw new NullReferenceException();
+            _organism_factory = organismFactory ?? throw new NullReferenceException();
+            _gene_factory = geneFactory ?? throw new NullReferenceException();
 
             _random = new Random();
         }

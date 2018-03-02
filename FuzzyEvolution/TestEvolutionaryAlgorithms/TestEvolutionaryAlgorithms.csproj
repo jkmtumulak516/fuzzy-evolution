@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{035A5273-E3F4-4244-B1F5-9D8C8D2509E4}</ProjectGuid>
+    <ProjectGuid>{ECF87B87-96C1-43DB-A907-0E2E5B97D459}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestFuzzyLogicSystems</RootNamespace>
-    <AssemblyName>TestFuzzyLogicSystems</AssemblyName>
+    <RootNamespace>TestEvolutionaryAlgorithms</RootNamespace>
+    <AssemblyName>TestEvolutionaryAlgorithms</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -19,7 +19,6 @@
     <TestProjectType>UnitTest</TestProjectType>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,31 +48,25 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\DummyFuzzySets.cs" />
-    <Compile Include="Core\Generic\RuleBase\TestEvaluationTreeRuleBase.cs" />
-    <Compile Include="Core\Rules\TestRuleBuilder.cs" />
-    <Compile Include="Core\Rules\TestRule.cs" />
-    <Compile Include="Core\TestFuzzyLogicSystem.cs" />
-    <Compile Include="Core\Values\Generic\TestGaussianInput.cs" />
-    <Compile Include="Core\Values\Generic\TestLinearInput.cs" />
+    <Compile Include="Genetic\DummyGene.cs" />
+    <Compile Include="Genetic\DummyGeneCopier.cs" />
+    <Compile Include="Genetic\DummyOrganism.cs" />
+    <Compile Include="Genetic\DummyOrganismFactory.cs" />
+    <Compile Include="Genetic\Generic\Crossover\TestSinglePointCrossover.cs" />
+    <Compile Include="Genetic\Generic\Crossover\TestTwoPointCrossover.cs" />
+    <Compile Include="Genetic\Generic\Crossover\TestUniformCrossover.cs" />
+    <Compile Include="Genetic\Generic\Selection\TestFitnessProportionateSelection.cs" />
+    <Compile Include="Genetic\Generic\Selection\TestStochasticUniversalSamplingSelection.cs" />
+    <Compile Include="Genetic\Generic\TestGeneticAlgorithm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Core\Values\Generic\TestLinearResult.cs" />
-    <Compile Include="Util\TestMathUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="IO\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\EvolutionaryAlgorithms\EvolutionaryAlgorithms.csproj">
       <Project>{fbc819b6-a5d9-44ff-a7c9-1f4329572f2a}</Project>
       <Name>EvolutionaryAlgorithms</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FuzzyLogicSystem\FuzzyLogicSystems.csproj">
-      <Project>{d0e83039-099a-4930-9704-0fef26584873}</Project>
-      <Name>FuzzyLogicSystems</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
