@@ -16,7 +16,9 @@ namespace FuzzyLogicSystems.Core.Generic.Fuzzifier
 
                 foreach (var fuzzyMember in fuzzySet.Members)
                 {
-                    if (fuzzyMember.Contains(crispValue.Value))
+                    if (fuzzyMember.Contains(crispValue.Value) || 
+                        (crispValue.Value < fuzzyMember.Peak && fuzzyMember.CeilLeft) ||
+                        (crispValue.Value > fuzzyMember.Peak && fuzzyMember.CeilRight))
                         currentValues.Add(new FuzzyValue<IInputFuzzyMember>
                             (fuzzyMember.GetMembership(crispValue.Value), fuzzyMember));
                 }
