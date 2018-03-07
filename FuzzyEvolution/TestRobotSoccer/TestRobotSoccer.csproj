@@ -48,11 +48,25 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="GameState\DistanceGoal.cs" />
+    <Compile Include="GameState\DistanceDifference.cs" />
+    <Compile Include="GameState\StateValue.cs" />
+    <Compile Include="GameState\TestGameState.cs" />
+    <Compile Include="GameState\Orientation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EvolutionaryAlgorithms\EvolutionaryAlgorithms.csproj">
+      <Project>{fbc819b6-a5d9-44ff-a7c9-1f4329572f2a}</Project>
+      <Name>EvolutionaryAlgorithms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FuzzyLogicSystem\FuzzyLogicSystems.csproj">
+      <Project>{d0e83039-099a-4930-9704-0fef26584873}</Project>
+      <Name>FuzzyLogicSystems</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
