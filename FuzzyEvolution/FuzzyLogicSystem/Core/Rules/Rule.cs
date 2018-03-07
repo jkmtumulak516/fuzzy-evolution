@@ -69,7 +69,7 @@ namespace FuzzyLogicSystems.Core.Rules
             if (seed < 0.5f)
                 _result = set.Where(x => x.Peak < Result.Peak).FirstOrDefault() ?? _result;
             else
-                _result = set.OrderByDescending(x => x).Where(x => x.Peak < Result.Peak).FirstOrDefault() ?? _result;
+                _result = set.Where(x => x.Peak > Result.Peak).FirstOrDefault() ?? _result;
         }
     }
 }
