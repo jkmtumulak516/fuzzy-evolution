@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestEvolutionaryAlgorithms"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestIntegration", "TestIntegration\TestIntegration.csproj", "{A7EA7D8F-9B97-47F0-A0F7-9E409D0FACA1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRobotSoccer", "TestRobotSoccer\TestRobotSoccer.csproj", "{B75A8352-BCD4-4A3C-ABD5-AB6469956C59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{A7EA7D8F-9B97-47F0-A0F7-9E409D0FACA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7EA7D8F-9B97-47F0-A0F7-9E409D0FACA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7EA7D8F-9B97-47F0-A0F7-9E409D0FACA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B75A8352-BCD4-4A3C-ABD5-AB6469956C59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B75A8352-BCD4-4A3C-ABD5-AB6469956C59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B75A8352-BCD4-4A3C-ABD5-AB6469956C59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B75A8352-BCD4-4A3C-ABD5-AB6469956C59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
