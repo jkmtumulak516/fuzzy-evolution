@@ -22,7 +22,7 @@ namespace FuzzyLogicSystems.Core.Values.Generic
             _base_half_width = baseHalfWidth;
             _peak_half_width = peakHalfWidth;
 
-            _print_output = Category + " : " + Name;
+            _print_output = "(" + Category + " : " + Name + ")";
         }
 
         public string Name { get => _name; }

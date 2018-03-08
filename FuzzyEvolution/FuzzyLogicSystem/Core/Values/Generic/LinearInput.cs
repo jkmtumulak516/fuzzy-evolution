@@ -29,7 +29,7 @@ namespace FuzzyLogicSystems.Core.Values.Generic
             _ceil_left = ceilLeft;
             _ceil_right = ceilRight;
 
-            _print_output = Category + " : " + Name;
+            _print_output = "(" + Category + " : " + Name + ")";
         }
 
         public string Name { get => _name; }

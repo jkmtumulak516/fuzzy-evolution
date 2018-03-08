@@ -11,7 +11,7 @@ namespace FuzzyLogicSystems.Core.Rules
         private readonly IList<IRulePart> _rule_parts;
         private readonly IList<IRulePart> _post_fix_parts;
         private IResultFuzzyMember _result;
-        private readonly string _print_output;
+        private string _print_output;
 
         internal Rule(IList<IRulePart> ruleParts, IResultFuzzyMember result)
         {
@@ -24,6 +24,7 @@ namespace FuzzyLogicSystems.Core.Rules
 
             foreach (var rulePart in _rule_parts)
                 sb.Append(rulePart.ToString()).Append(" ");
+            sb.Append(" => ").Append(_result.ToString());
 
             _print_output = sb.ToString();
 
@@ -65,11 +66,18 @@ namespace FuzzyLogicSystems.Core.Rules
         public void Mutate(float seed)
         {
             var set = new SortedSet<IResultFuzzyMember>(Result.ParentSet.Members);
+            var sb = new StringBuilder();
 
             if (seed < 0.5f)
                 _result = set.Where(x => x.Peak < Result.Peak).FirstOrDefault() ?? _result;
             else
                 _result = set.Where(x => x.Peak > Result.Peak).FirstOrDefault() ?? _result;
+
+            foreach (var rulePart in _rule_parts)
+                sb.Append(rulePart.ToString()).Append("  ");
+            sb.Append(" => ").Append(_result.ToString());
+
+            _print_output = sb.ToString();
         }
     }
 }
